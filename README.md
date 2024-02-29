@@ -6,6 +6,12 @@
 
 ---
 
+> * Supported Languages
+
+* Português, Brasil.
+
+---
+
 > * BOT Initialization
 
 1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/victormoreiraofc/nine-discord-bot`.
