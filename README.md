@@ -16,6 +16,12 @@
 
 ---
 
+> * Comandos Gerais
+
+* /ping - Mostra informações sobre a latência do nine ao discord.
+
+---
+
 > * Colaboradores
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
