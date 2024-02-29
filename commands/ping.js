@@ -12,7 +12,8 @@ module.exports = {
         let embed = new Discord.EmbedBuilder()
         .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
         .setDescription(`Meu ping atual é de ${ping}ms.`)
-        .setColor("#2B2D31");
+        .setColor("#2B2D31")
+        .setTimestamp();
     
         interaction.reply({ embeds: [embed] }).then( () => {
         })
