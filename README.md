@@ -1,30 +1,29 @@
 <h1 align="center">
-  <br>Bot de Discord NINE - Discord.js V14
+  <br>Bot Discord NINE - Discord.js V14
 </h1>
 
-> Neste repositório, você encontrará um bot de Discord desenvolvido em JavaScript utilizando a biblioteca [Discord.js](https://github.com/discordjs/discord.js) na versão 14. Este projeto foi criado como parte de um projeto de faculdade.
+> In this repository, you will find a Discord bot developed in JavaScript using the [Discord.js](https://github.com/discordjs/discord.js) library in version 14. This project was created as part of a UNINOVE college project.
 
 ---
 
-> * Inicialização do BOT
+> * BOT Initialization
 
-* Faça o download dos codigos do BOT.
-* Acesse o [Portal do Desenvolvedor](https://discord.com/developers/applications) e acesse seu bot.
-* Pegue o token do bot feito e coloque no arquivo token.js.
-* Instale a ultima versão do [Node.js](https://nodejs.org/en).
-* Abra seus arquivos no Visual Studio Code, abra um terminal e digite 'node .' e seu bot estará online.
-
----
-
-> * Comandos Gerais
-
-* /ping - Mostra informações sobre a latência do nine ao discord.
+1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/victormoreiraofc/nine-discord-bot`.
+2. Navigate to the bot's directory and run the command `npm install` (make sure [node.js](https://nodejs.org/en) is installed).
+3. Once all the required modules are installed, open the `token.js` file and fill in the necessary information.
+4. Click on `nine.bat` to start the bot.
 
 ---
 
-> * Colaboradores
+> * General Commands
 
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
+* /ping - Shows information about latency from nine to discord.
+
+---
+
+> * Collaborators
+
+We thank the following people who contributed to this project:
 
 <table>
   <tr>
