@@ -41,7 +41,28 @@ const client = new Discord.Client({
 
  client.login(token)
 
- client.on("guildMemberAdd", (member) => {
+ client.on("messageCreate", (message) => {
+    if (message.author.bot) return;
+
+    let mencoes = [`<@${client.user.id}>`, `<@!${client.user.id}>`];
+
+    mencoes.forEach(element => {
+        if (message.content.includes(element)) {
+            const response = `Oi ${message.author}, 😊 Que bom te ver por aqui! Estou disponível para conversar ou ajudar com qualquer coisa que precisar. Como posso ser útil hoje?`;
+            message.reply(response);
+        }
+    });
+});
+
+client.on("messageCreate", (message) => {
+    if (message.author.bot) return;
+
+    if (message.content.toLowerCase().includes("ajuda")) {
+        message.reply(`Olá! ${message.author}, 😊 Vi que precisa de ajuda, de /help para ver tudo que eu posso fazer!`);
+    }
+});
+
+client.on("guildMemberAdd", (member) => {
     let id = db.get(`contador_${member.guild.id}`);
     let canal = member.guild.channels.cache.get(id);
     if (!canal) return;
