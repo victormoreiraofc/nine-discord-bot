@@ -40,3 +40,21 @@ const client = new Discord.Client({
  })
 
  client.login(token)
+
+ client.on("guildMemberAdd", (member) => {
+    let id = db.get(`contador_${member.guild.id}`);
+    let canal = member.guild.channels.cache.get(id);
+    if (!canal) return;
+
+    let membros = memberCount;
+    canal.setName(`Membros: ${membros}`)
+ })
+
+ client.on("guildMemberRemove", (member) => {
+    let id = db.get(`contador_${member.guild.id}`);
+    let canal = member.guild.channels.cache.get(id);
+    if (!canal) return;
+
+    let membros = memberCount;
+    canal.setName(`Membros: ${membros}`)
+ })
