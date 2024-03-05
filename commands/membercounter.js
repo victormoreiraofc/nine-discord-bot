@@ -7,8 +7,8 @@ module.exports = {
     type: 1,
 
     run: async (client, interaction, args) => {
-        if (!interaction.member.permissions.has("MANAGE_GUILD")) {
-            interaction.reply({ content: "Você não tem permissão para usar este comando!", ephemeral: true });
+        if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
+            interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
             try {
                 let channel = await interaction.guild.channels.create({
