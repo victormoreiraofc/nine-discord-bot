@@ -39,7 +39,7 @@ const client = new Discord.Client({
     }
  })
 
- client.login(token)
+ client.login(process.env.token)
 
  client.on("messageCreate", (message) => {
     if (message.author.bot) return;
