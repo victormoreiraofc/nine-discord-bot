@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
-const token = require('./token').token
 const fs = require('fs')
+
+require("dotenv").config()
 
 const client = new Discord.Client({ 
     intents: [
@@ -39,7 +40,7 @@ const client = new Discord.Client({
     }
  })
 
- client.login(token)
+ client.login(process.env.token)
 
  client.on("messageCreate", (message) => {
     if (message.author.bot) return;
