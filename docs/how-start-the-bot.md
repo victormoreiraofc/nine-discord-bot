@@ -1,2 +1,2 @@
-# Iniciando um Bot do Discord em JavaScript (v14)
+# Como iniciar o Bot do Discord em JavaScript (v14)
 

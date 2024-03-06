@@ -1,7 +1,7 @@
 {
   "name": "nine-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "O Nine Bot é um assistente multifuncional para servidores do Discord. Ele oferece uma variedade de recursos úteis, desde moderação até entretenimento, para tornar sua experiência no Discord mais divertida e organizada.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -14,5 +14,10 @@
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5",
     "quick.db": "^9.1.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^2.0.15"
   }
 }
