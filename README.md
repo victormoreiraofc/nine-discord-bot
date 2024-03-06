@@ -9,16 +9,14 @@
 
 > * Supported Languages
 
-* Português, Brasil.
+- Brazilian Portuguese (pt_br)
 
 ---
 
 > * BOT Initialization
 
-1. Clone the repository by downloading it as a ZIP file or running the command `git clone https://github.com/victormoreiraofc/nine-discord-bot`.
-2. Navigate to the bot's directory and run the command `npm install` (make sure [node.js](https://nodejs.org/en) is installed).
-3. Once all the required modules are installed, open the `token.js` file and fill in the necessary information.
-4. Click on `nine.bat` to start the bot.
+- [[Documentation] Initialize BOT](https://github.com/victormoreiraofc/nine-discord-bot/blob/main/docs/how-start-the-bot.md)
+- [[Documentation] How to Create a Command for the BOT](https://github.com/victormoreiraofc/nine-discord-bot/blob/main/docs/how-create-new-command.md)
 
 ---
 
@@ -28,9 +26,7 @@
 
 ---
 
-> * Collaborators
-
-We thank the following people who contributed to this project:
+> * Official Developer Project
 
 <table>
   <tr>
@@ -52,3 +48,15 @@ We thank the following people who contributed to this project:
     </td>
   </tr>
 </table>
+
+---
+
+> * Contributing
+
+1. [Fork the repository](https://github.com/victormoreiraofc/nine-discord-bot/fork)
+2. Clone your fork: `git clone https://github.com/victormoreiraofc/nine-discord-bot`
+3. Create your feature branch: `git checkout -b my-new-feature`
+4. Stage changes `git add .`
+5. Commit your changes: `cz` OR `npm run commit` do not use `git commit`
+6. Push to the branch: `git push origin my-new-feature`
+7. Submit a pull request
