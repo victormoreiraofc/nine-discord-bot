@@ -63,21 +63,3 @@ client.on("messageCreate", (message) => {
         message.reply(`Olá! ${message.author}, 😊 Vi que precisa de ajuda, de /help para ver tudo que eu posso fazer!`);
     }
 });
-
-client.on("guildMemberAdd", (member) => {
-    let id = db.get(`contador_${member.guild.id}`);
-    let canal = member.guild.channels.cache.get(id);
-    if (!canal) return;
-
-    let membros = memberCount;
-    canal.setName(`Membros: ${membros}`)
- })
-
- client.on("guildMemberRemove", (member) => {
-    let id = db.get(`contador_${member.guild.id}`);
-    let canal = member.guild.channels.cache.get(id);
-    if (!canal) return;
-
-    let membros = memberCount;
-    canal.setName(`Membros: ${membros}`)
- })

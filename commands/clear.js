@@ -1,8 +1,8 @@
 const Discord = require("discord.js")
 
 module.exports = {
-    name: "clear",
-    description: "Limpe o canal de texto",
+    name: "limpar",
+    description: "Limpa mensagens de um canal de texto.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
@@ -21,11 +21,12 @@ module.exports = {
             interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
         } else {
 
-            if (parseInt(numero) > 99 || parseInt(numero) <= 0) {
+            if (parseInt(numero) > 200 || parseInt(numero) <= 0) {
 
                 let embed = new Discord.EmbedBuilder()
                     .setColor("#2B2D31")
-                    .setDescription(`\`/clear [1 - 99]\``);
+                    .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
+                    .setDescription('Nenhuma mensagem deletada! Você só pode deletar entre 0 a 200 mensagens.');
 
                 interaction.reply({ embeds: [embed] })
 
