@@ -1,6 +1,6 @@
 <h1 align="center">
-  <br>Bot Discord NINE - Discord.js V14
   <img src="assets/nine_mini_without_background.png" alt="NINE">
+  <br>Bot Discord NINE - Discord.js V14
 </h1>
 
 > In this repository, you will find a Discord bot developed in JavaScript using the [Discord.js](https://github.com/discordjs/discord.js) library in version 14. This project was created as part of a UNINOVE college project.
@@ -23,6 +23,10 @@
 > * General Commands
 
 * /ping - Shows information about latency from nine to discord.
+* /clear - Clears messages from a text channel.
+* /ban - Ban a user.
+* /unban - Unban a user.
+* /setstatus - Set the bot status.
 
 ---
 
