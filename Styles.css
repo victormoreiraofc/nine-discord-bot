@@ -1,0 +1,131 @@
+/* Define a fonte padrão e zera as margens e padding do body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #272626, #ee8a38;
+    background: linear-gradient(to right, #272626, #272626);
+}
+
+/* Define o container principal com largura máxima de 800px, centralizado na página */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+ 
+img {
+    position: relative; /* Posiciona a imagem de forma absoluta */
+    /* Defina as coordenadas para posicionar a imagem */
+    top: 100px; /* Distância do topo */
+    left: 100px; /* Distância da esquerda */
+}
+
+/* Define o tamanho da imagem */
+img {
+    width: 100px; /* largura de 200 pixels */
+    height: 100px; /* altura de 200 pixels */
+}
+
+/* Define a posição da imagem */
+img {
+    position: fixed; /* permite posicionar a imagem */
+    left: 30px; /* move a imagem 50 pixels para a direita */
+    top: 8px; /* move a imagem 20 pixels para baixo */
+}
+
+header {
+    background-color: #272626;
+    color: #ff7300;
+    padding: 10px 20px; /* Aumenta o padding para dar espaço ao texto */
+    text-align: left; /* Alinha o texto à esquerda */
+    position: relative; /* Adiciona posição relativa para alinhar a linha */
+}
+
+header h1 {
+    margin: 0; /* Remove a margem padrão */
+    display: inline-block; /* Permite que o título fique na mesma linha que a navegação */
+    position:static
+}
+
+header::after {
+    content: ''; /* Adiciona um conteúdo vazio para criar a linha */
+    position: absolute; /* Posiciona absolutamente em relação ao cabeçalho */
+    bottom: 0; /* Alinha a linha na parte inferior do cabeçalho */
+    left: 0; /* Alinha a linha à esquerda do cabeçalho */
+    width: 100%; /* Define a largura da linha como 100% do cabeçalho */
+    height: 2px; /* Define a altura da linha */
+    background-color: #ff7300; /* Cor laranja da linha */
+}
+
+/* Define a estrutura interna do cabeçalho com flexbox para alinhar os elementos */
+header .container {
+    display: flex;
+    justify-content: space-between; /* Distribui o espaço entre os elementos */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+/* Estiliza a lista de navegação */
+nav ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o espaçamento interno da lista */
+}
+
+/* Estiliza os itens da lista de navegação */
+nav ul li {
+    display: inline-block; /* Exibe os itens em linha */
+    margin-right: 50px; /* Espaçamento entre os itens */
+}
+
+/* Estiliza os links da lista de navegação */
+nav ul li a {
+    color: #fff; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    transition: color 0.3s; /* Adiciona uma transição suave de cor */
+}
+
+/* Altera a cor do texto dos links ao passar o mouse sobre eles */
+nav ul li a:hover {
+    color: #f2f2f2; /* Nova cor do texto */
+}
+
+/* Estiliza as seções da página */
+section {
+    padding: 50px 0; /* Espaçamento interno das seções */
+    text-align: center; /* Alinhamento do texto */
+}
+
+/* Estiliza os títulos das seções */
+section h2 {
+    margin-bottom: 20px; /* Espaçamento inferior do título */
+    color: white;
+}
+
+section p {
+    color: white; /* Altera a cor do texto para branco */
+}
+
+/* Estiliza os botões da página */
+.button {
+    display: inline-block; /* Exibe o botão em linha */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    background-color: #7289da; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    border-radius: 5px; /* Adiciona bordas arredondadas */
+    transition: background-color 0.3s; /* Adiciona uma transição suave de cor */
+}
+
+/* Altera a cor de fundo dos botões ao passar o mouse sobre eles */
+.button:hover {
+    background-color: #677bc4; /* Nova cor de fundo do botão */
+}
+
+/* Estiliza o rodapé da página */
+footer {
+    background-color: #272626, #ee8a38; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    text-align: center; /* Alinhamento do texto */
+    padding: 10px 0; /* Espaçamento interno do rodapé */
+}
