@@ -6,6 +6,7 @@ body {
     box-sizing: border-box;
     background-color: #272626, #ee8a38;
     background: linear-gradient(to right, #272626, #272626);
+    background-image: radial-gradient(circle at 71% 29%, rgba(187,105,28, 0.03) 0%, rgba(187,105,28, 0.03) 32%,transparent 32%, transparent 100%),radial-gradient(circle at 100% 82%, rgba(82, 82, 82,0.03) 0%, rgba(82, 82, 82,0.03) 26%,transparent 26%, transparent 100%),radial-gradient(circle at 30% 35%, rgba(78, 78, 78,0.03) 0%, rgba(78, 78, 78,0.03) 55%,transparent 55%, transparent 100%),radial-gradient(circle at 71% 54%, rgba(52, 52, 52,0.03) 0%, rgba(52, 52, 52,0.03) 13%,transparent 13%, transparent 100%),radial-gradient(circle at 17% 19%, rgba(202, 202, 202,0.03) 0%, rgba(202, 202, 202,0.03) 83%,transparent 83%, transparent 100%),radial-gradient(circle at 28% 30%, rgba(219, 219, 219,0.03) 0%, rgba(219, 219, 219,0.03) 39%,transparent 39%, transparent 100%),radial-gradient(circle at 56% 19%, rgba(155, 155, 155,0.03) 0%, rgba(155, 155, 155,0.03) 33%,transparent 33%, transparent 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
 }
 
 /* Define o container principal com largura máxima de 800px, centralizado na página */
@@ -98,12 +99,39 @@ section {
 
 /* Estiliza os títulos das seções */
 section h2 {
+    font-family: Arial, sans-serif;
+    font-size: 60px;   
     margin-bottom: 20px; /* Espaçamento inferior do título */
-    color: white;
+    color: rgb(255, 253, 253);
+    text-align: left;
+    padding-left: 0px;
+    margin-left: -240px;
+}
+section p1 {
+    color: white; /* Altera a cor do texto para branco */
+    text-align: left;
+    text-align: left;
+    padding-left: 0px;
+    margin-left: -900px;
+    line-height: 0px;
 }
 
-section p {
+section h3 {
+    font-family: Arial, sans-serif;
+    font-size: 30px;   
+    margin-bottom: 20px; /* Espaçamento inferior do título */
+    color: rgb(255, 253, 253);
+    text-align: left;
+    padding-left: 0px;
+    margin-left: 20px;
+}
+section p2 {
     color: white; /* Altera a cor do texto para branco */
+    text-align: left;
+    text-align: left;
+    padding-left: 0px;
+    margin-left: 160px;
+  
 }
 
 /* Estiliza os botões da página */
