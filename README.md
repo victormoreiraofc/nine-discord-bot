@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>Bot Discord NINE - Discord.js V14
-  <img src="assets/nine_without_background.png" alt="NINE">
+  <img src="assets/nine_mini_without_background.png" alt="NINE">
 </h1>
 
 > In this repository, you will find a Discord bot developed in JavaScript using the [Discord.js](https://github.com/discordjs/discord.js) library in version 14. This project was created as part of a UNINOVE college project.
