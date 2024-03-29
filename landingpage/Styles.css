@@ -15,31 +15,24 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
- 
-img {
-    position: relative; /* Posiciona a imagem de forma absoluta */
-    /* Defina as coordenadas para posicionar a imagem */
-    top: 100px; /* Distância do topo */
-    left: 100px; /* Distância da esquerda */
-}
 
 /* Define o tamanho da imagem */
 img {
-    width: 100px; /* largura de 200 pixels */
-    height: 100px; /* altura de 200 pixels */
+    width: 80px; /* largura de 200 pixels */
+    height: 80px; /* altura de 200 pixels */
 }
 
 /* Define a posição da imagem */
 img {
     position: fixed; /* permite posicionar a imagem */
-    left: 30px; /* move a imagem 50 pixels para a direita */
-    top: 8px; /* move a imagem 20 pixels para baixo */
+    left: 250px; /* move a imagem 50 pixels para a direita */
+    top: 15px; /* move a imagem 20 pixels para baixo */
 }
 
 header {
     background-color: #272626;
-    color: #ff7300;
-    padding: 10px 20px; /* Aumenta o padding para dar espaço ao texto */
+    color: #ffffff;
+    padding: 5px 20px; /* Aumenta o padding para dar espaço ao texto */
     text-align: left; /* Alinha o texto à esquerda */
     position: relative; /* Adiciona posição relativa para alinhar a linha */
 }
@@ -47,7 +40,8 @@ header {
 header h1 {
     margin: 0; /* Remove a margem padrão */
     display: inline-block; /* Permite que o título fique na mesma linha que a navegação */
-    position:static
+    position: static;
+    font-size: 3em;
 }
 
 header::after {

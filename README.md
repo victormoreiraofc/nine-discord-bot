@@ -3,6 +3,12 @@
   <br>Bot Discord NINE - Discord.js V14
 </h1>
 
+![GitHub repo size](https://img.shields.io/github/repo-size/victormoreiraofc/nine-discord-bot?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/victormoreiraofc/nine-discord-bot?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/victormoreiraofc/nine-discord-bot?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/victormoreiraofc/nine-discord-bot?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/victormoreiraofc/nine-discord-bot?style=for-the-badge)
+
 > In this repository, you will find a Discord bot developed in JavaScript using the [Discord.js](https://github.com/discordjs/discord.js) library in version 14. This project was created as part of a UNINOVE college project.
 
 ---
@@ -15,8 +21,8 @@
 
 > * BOT Initialization
 
-- [[Documentation] Initialize BOT](https://github.com/victormoreiraofc/nine-discord-bot/blob/main/docs/how-start-the-bot.md)
-- [[Documentation] How to Create a Command for the BOT](https://github.com/victormoreiraofc/nine-discord-bot/blob/main/docs/how-create-new-command.md)
+- [Como inicializar o BOT](https://github.com/victormoreiraofc/nine-discord-bot/blob/main/docs/how-start-the-bot.md).
+- [Como criar um novo comando para o BOT](https://github.com/victormoreiraofc/nine-discord-bot/blob/main/docs/how-create-new-command.md).
 
 ---
 
@@ -35,7 +41,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/victormoreiraofc">
         <img src="https://avatars.githubusercontent.com/u/121199565?v=4" width="100px;" alt="Foto do Victor Moreira no GitHub"/><br>
         <sub>
           <b>Victor Moreira</b>
@@ -43,10 +49,18 @@
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/Mateus-Ebenezer">
         <img src="https://avatars.githubusercontent.com/u/143097497?v=4" width="100px;" alt="Foto do Mateus Ebenezer da Silva Santos no GitHub"/><br>
         <sub>
           <b>Mateus Ebenezer</b>
+        </sub>
+      </a>
+    </td>
+     <td align="center">
+      <a href="https://github.com/GiovaneRocca03">
+        <img src="https://avatars.githubusercontent.com/u/108840776?v=4" width="100px;" alt="Foto do Giovane Rocca no GitHub"/><br>
+        <sub>
+          <b>Giovane Rocca</b>
         </sub>
       </a>
     </td>
