@@ -13,26 +13,21 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
 }
 
 /* Define o tamanho da imagem */
 img {
     width: 80px; /* largura de 200 pixels */
     height: 80px; /* altura de 200 pixels */
-}
-
-/* Define a posição da imagem */
-img {
-    position: fixed; /* permite posicionar a imagem */
-    left: 250px; /* move a imagem 50 pixels para a direita */
-    top: 15px; /* move a imagem 20 pixels para baixo */
+    position: relative;
+    right: 10px;
+    top: 5px; /* move a imagem 20 pixels para baixo */
 }
 
 header {
     background-color: #272626;
     color: #ffffff;
-    padding: 5px 20px; /* Aumenta o padding para dar espaço ao texto */
+    padding: 0px 400px 0px 0px; /* Aumenta o padding para dar espaço ao texto */
     text-align: left; /* Alinha o texto à esquerda */
     position: relative; /* Adiciona posição relativa para alinhar a linha */
 }
@@ -57,14 +52,13 @@ header::after {
 /* Define a estrutura interna do cabeçalho com flexbox para alinhar os elementos */
 header .container {
     display: flex;
-    justify-content: space-between; /* Distribui o espaço entre os elementos */
     align-items: center; /* Alinha os itens verticalmente */
 }
 
 /* Estiliza a lista de navegação */
 nav ul {
     list-style-type: none; /* Remove os marcadores da lista */
-    padding: 0; /* Remove o espaçamento interno da lista */
+    padding: 0px 0px 0px 100px; /* Remove o espaçamento interno da lista */
 }
 
 /* Estiliza os itens da lista de navegação */
@@ -102,12 +96,12 @@ section h2 {
     margin-left: -240px;
 }
 section p1 {
-    color: white; /* Altera a cor do texto para branco */
-    text-align: left;
+    color: rgb(145 149 171/ 1); /* Altera a cor do texto para branco */
     text-align: left;
     padding-left: 0px;
-    margin-left: -900px;
-    line-height: 0px;
+    margin-left: -300px;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 section h3 {
