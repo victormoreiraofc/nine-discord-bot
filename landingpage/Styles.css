@@ -27,7 +27,7 @@ img {
 header {
     background-color: #272626;
     color: #ffffff;
-    padding: 0px 400px 0px 0px; /* Aumenta o padding para dar espaço ao texto */
+    padding: 0px 530px 0px 0px; /* Aumenta o padding para dar espaço ao texto */
     text-align: left; /* Alinha o texto à esquerda */
     position: relative; /* Adiciona posição relativa para alinhar a linha */
 }
@@ -76,7 +76,40 @@ nav ul li a {
 
 /* Altera a cor do texto dos links ao passar o mouse sobre eles */
 nav ul li a:hover {
-    color: #f2f2f2; /* Nova cor do texto */
+    color: #ff7300; /* Nova cor do texto */
+}
+
+
+/* Estilo para alinhar os links de login e cadastro */
+nav li abbr {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+    color:#ffffff
+}
+
+/* Altera a cor do texto dos links ao passar o mouse sobre eles */
+nav ul li abbr:hover {
+    color: #ff7300; /* Nova cor do texto */
+}
+
+/* Estiliza os links da lista de navegação */
+nav ul li abbr {
+    color: #ffffff; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    transition: color 0.3s; /* Adiciona uma transição suave de cor */
+}
+
+/* Estiliza os itens da lista de navegação */
+nav ul li abbr {
+    display: inline-block; /* Exibe os itens em linha */
+    margin-right: 20px; /* Espaçamento entre os itens */
+}
+
+/* Estiliza a lista de navegação */
+nav ul li abbr {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0px 0px 0px 0px; /* Remove o espaçamento interno da lista */
 }
 
 /* Estiliza as seções da página */
@@ -144,4 +177,21 @@ footer {
     color: #ffffff; /* Cor do texto */
     text-align: center; /* Alinhamento do texto */
     padding: 10px 0; /* Espaçamento interno do rodapé */
+}
+
+.imagem-sobre {
+    float: left;
+    width: 500px; /* Altere o valor para o tamanho desejado */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-right: 20px; /* Adiciona um espaçamento à direita da imagem (opcional) */
+}
+
+footer {
+    
+    bottom: 0;
+    width: 100%;
+    height: 50px; /* Ajuste a altura do seu footer aqui */
+    padding: 10px 0; /* Espaçamento interno (opcional) */
+    text-align: center; /* Alinhamento do texto (opcional) */
+    z-index: 2000; /* Define a camada do elemento (opcional) */
 }
