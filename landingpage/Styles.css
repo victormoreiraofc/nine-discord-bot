@@ -15,9 +15,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--cinza-escuro-background), var(--laranja-background);
-    background: linear-gradient(to right, var(--cinza-escuro-background), var(--cinza-escuro-background));
-    background-image: radial-gradient(circle at 71% 29%, rgba(187,105,28, 0.03) 0%, rgba(187,105,28, 0.03) 32%,transparent 32%, transparent 100%),radial-gradient(circle at 100% 82%, rgba(82, 82, 82,0.03) 0%, rgba(82, 82, 82,0.03) 26%,transparent 26%, transparent 100%),radial-gradient(circle at 30% 35%, rgba(78, 78, 78,0.03) 0%, rgba(78, 78, 78,0.03) 55%,transparent 55%, transparent 100%),radial-gradient(circle at 71% 54%, rgba(52, 52, 52,0.03) 0%, rgba(52, 52, 52,0.03) 13%,transparent 13%, transparent 100%),radial-gradient(circle at 17% 19%, rgba(202, 202, 202,0.03) 0%, rgba(202, 202, 202,0.03) 83%,transparent 83%, transparent 100%),radial-gradient(circle at 28% 30%, rgba(219, 219, 219,0.03) 0%, rgba(219, 219, 219,0.03) 39%,transparent 39%, transparent 100%),radial-gradient(circle at 56% 19%, rgba(155, 155, 155,0.03) 0%, rgba(155, 155, 155,0.03) 33%,transparent 33%, transparent 100%),linear-gradient(90deg, var(--preto-padrao),var(--preto-padrao));
+    background-image: url(https://i.imgur.com/4pA4zbJ.jpeg);
 }
 
 /* Define o container principal com largura máxima de 800px, centralizado na página */
@@ -44,7 +42,7 @@ body {
 }
 
 header {
-    background-color: var(--cinza-escuro-background)77;
+    background-color: var(--cinza-escuro-background);
     color: var(--branco-padrao);
     position: relative; /* Adiciona posição relativa para alinhar a linha */
 }
@@ -56,7 +54,7 @@ header::after {
     left: 0; /* Alinha a linha à esquerda do cabeçalho */
     width: 100%; /* Define a largura da linha como 100% do cabeçalho */
     height: 2px; /* Define a altura da linha */
-    background-color: var(--laranja-principal); /* Cor laranja da linha */
+    background-color: #63636388; /* Cor laranja da linha */
 }
 
 .header-start, .header-about {
@@ -79,9 +77,8 @@ header::after {
 }
 
 .header-signup {
-    background-color: var(--transparent); 
+    background-color: #ff730048; 
     color: var(--branco-padrao); 
-    border: 2px solid var(--branco-padrao);
     padding: 8px 13px;
     text-align: center;
     text-decoration: none;
@@ -102,13 +99,13 @@ header .container {
 }
 
 .header-start, .header-about, .header-login, .header-signup {
-    color: var(--branco-padrao);
+    color: #b4b6b6;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .header-start:hover, .header-about:hover, .header-login:hover {
-    color: var(--laranja-principal);
+    color: var(--branco-padrao);
 }
 
 /* Estiliza a lista de navegação */
@@ -127,6 +124,13 @@ section {
     padding: 50px 0; /* Espaçamento interno das seções */
 }
 
+.principal-logo-nine {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 65%;
+}
+
 .heading-tag-project-name {
     font-family: Arial, sans-serif;
     font-size: 60px;   
@@ -135,6 +139,7 @@ section {
     text-align: left;
     padding-left: 0px;
     margin-left: -267px;
+    margin-top: 15%;
 }
 
 .text-container {
@@ -155,7 +160,7 @@ section {
 .first-button, .second-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--laranja-button);
+    background-color: #ff7300;
     color: var(--branco-padrao);
     text-decoration: none;
     border-radius: 5px;
@@ -172,8 +177,15 @@ section {
     background-color: var(--laranja-principal);
 }
 
+.first-button:active {
+    background-color: #ff73009f;
+    box-shadow: 0 5px #66666657;
+    transform: translateY(4px);
+  }
+
 .second-button {
     background-color: var(--preto-10);
+    right: 32%;
 }
 
 .second-button:hover {
