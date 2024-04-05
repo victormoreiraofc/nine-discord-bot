@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>NINE | Discord BOT</title>
+    <title>NINE — Um bot feito pra você</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="apple-touch-icon" sizes="57x57" href="../assets/apple-icon-57x57.png">
@@ -22,18 +22,21 @@
     <link rel="manifest" href="../assets/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../assets/ms-icon-144x144.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="Imagens/nine.sf.jpg" alt="Imagem Nine">
-            <h1>NINE</h1>
+            <img class="header-logo-nine" src="../assets/nine_mini_without_background.png" alt="header-logo">
+            <h1 class="heading-tag-bot-name">NINE</h1>
             <nav>
-                <ul>
-                    <li><a class="inicio" href="#inicio">Início</a></li>
-                    <li><a class="sobre-nos" href="#sobre">Sobre Nós</a></li>
-                    <li><abbr class="login" href="#login">Login</a></li>
-                    <li><abbr class="cadastro" href="#cadastro">Cadastrar-se</a></li>
+                <ul class="header-tags">
+                    <li><a class="header-start" href="../landingpage/index.html">Início</i></a></li>
+                    <li><a class="header-about" href="#sobre">Sobre Nós</i></a></li>
+                    <li><a class="header-login" href="#login">Login</a></li>
+                    <li><a class="header-signup" href="#cadastro">Cadastrar-se</a></li>
                 </ul>
             </nav>
         </div>
@@ -41,15 +44,16 @@
 
     <section id="text-base">
         <div class="container">
-            <h2>NINE BOT</h2>
-            <p1>NINE é um companheiro digital que torna o Discord mais dinâmico e interativo, facilitando a gestão e a diversão em comunidades online.</p>
-            <a href="#sobre" class="button">Saiba Mais</a>
+            <h2 class="heading-tag-project-name">NINE BOT</h2>
+            <div class="text-container"><p1 class="text-project-explication">NINE é um companheiro digital que torna o Discord mais dinâmico e interativo, facilitando a gestão e a diversão em comunidades online.</p></div>
+            <a class="first-button" href="https://discord.com/api/oauth2/authorize?client_id=1210605474114969720&permissions=2048&scope=bot"><img class="button-discord-logo" src="../assets/discord-white-icon.png" alt="discord-logo">Adicionar ao Discord</a>
+            <a class="second-button" href="#sobre">Ver Recursos</a>
         </div>
     </section>
     <section id="sobre">
         <div class="container">
-            <h3>Otimize sua experiência no Discord com Nosso Bot!</h2>
-            <p2>Bot usado por mais de 100.000 Servidores ao redor do mundo todo</p>
+            <h3 class="heading-tag-section-otimization">Otimize sua experiência no Discord com Nosso Bot!</h3>
+            <p2 class="text-servers-status">Bot usado por mais de 100.000 Servidores ao redor do mundo todo</p>
         </div>
         <div class="imagemcoment"><img src="Imagens/Comentario.jpg.png" alt="Imagem Comentario" class="imagem-sobre">
      </div>

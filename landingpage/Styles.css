@@ -1,12 +1,23 @@
-/* Define a fonte padrão e zera as margens e padding do body */
+:root {
+    --laranja-principal: #ff7300;
+    --laranja-button: #FF914D;
+    --laranja-background: #ee8a38;
+    --branco-padrao: #ffffff;
+    --cinza-escuro-background: #272626;
+    --preto-padrao: #000000;
+    --transparent: #ffffff00;
+    --preto-10: #ffffff10;
+    --preto-50: #ffffff50;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #272626, #ee8a38;
-    background: linear-gradient(to right, #272626, #272626);
-    background-image: radial-gradient(circle at 71% 29%, rgba(187,105,28, 0.03) 0%, rgba(187,105,28, 0.03) 32%,transparent 32%, transparent 100%),radial-gradient(circle at 100% 82%, rgba(82, 82, 82,0.03) 0%, rgba(82, 82, 82,0.03) 26%,transparent 26%, transparent 100%),radial-gradient(circle at 30% 35%, rgba(78, 78, 78,0.03) 0%, rgba(78, 78, 78,0.03) 55%,transparent 55%, transparent 100%),radial-gradient(circle at 71% 54%, rgba(52, 52, 52,0.03) 0%, rgba(52, 52, 52,0.03) 13%,transparent 13%, transparent 100%),radial-gradient(circle at 17% 19%, rgba(202, 202, 202,0.03) 0%, rgba(202, 202, 202,0.03) 83%,transparent 83%, transparent 100%),radial-gradient(circle at 28% 30%, rgba(219, 219, 219,0.03) 0%, rgba(219, 219, 219,0.03) 39%,transparent 39%, transparent 100%),radial-gradient(circle at 56% 19%, rgba(155, 155, 155,0.03) 0%, rgba(155, 155, 155,0.03) 33%,transparent 33%, transparent 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
+    background-color: var(--cinza-escuro-background), var(--laranja-background);
+    background: linear-gradient(to right, var(--cinza-escuro-background), var(--cinza-escuro-background));
+    background-image: radial-gradient(circle at 71% 29%, rgba(187,105,28, 0.03) 0%, rgba(187,105,28, 0.03) 32%,transparent 32%, transparent 100%),radial-gradient(circle at 100% 82%, rgba(82, 82, 82,0.03) 0%, rgba(82, 82, 82,0.03) 26%,transparent 26%, transparent 100%),radial-gradient(circle at 30% 35%, rgba(78, 78, 78,0.03) 0%, rgba(78, 78, 78,0.03) 55%,transparent 55%, transparent 100%),radial-gradient(circle at 71% 54%, rgba(52, 52, 52,0.03) 0%, rgba(52, 52, 52,0.03) 13%,transparent 13%, transparent 100%),radial-gradient(circle at 17% 19%, rgba(202, 202, 202,0.03) 0%, rgba(202, 202, 202,0.03) 83%,transparent 83%, transparent 100%),radial-gradient(circle at 28% 30%, rgba(219, 219, 219,0.03) 0%, rgba(219, 219, 219,0.03) 39%,transparent 39%, transparent 100%),radial-gradient(circle at 56% 19%, rgba(155, 155, 155,0.03) 0%, rgba(155, 155, 155,0.03) 33%,transparent 33%, transparent 100%),linear-gradient(90deg, var(--preto-padrao),var(--preto-padrao));
 }
 
 /* Define o container principal com largura máxima de 800px, centralizado na página */
@@ -16,27 +27,26 @@ body {
 }
 
 /* Define o tamanho da imagem */
-img {
-    width: 80px; /* largura de 200 pixels */
-    height: 80px; /* altura de 200 pixels */
+.header-logo-nine {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
     position: relative;
-    right: 10px;
-    top: 5px; /* move a imagem 20 pixels para baixo */
+    right: 45%;
+}
+
+.heading-tag-bot-name {
+    margin: 0;
+    display: inline-block; 
+    position: relative;
+    font-size: 2em;
+    right: 45%;
 }
 
 header {
-    background-color: #272626;
-    color: #ffffff;
-    padding: 0px 530px 0px 0px; /* Aumenta o padding para dar espaço ao texto */
-    text-align: left; /* Alinha o texto à esquerda */
+    background-color: var(--cinza-escuro-background)77;
+    color: var(--branco-padrao);
     position: relative; /* Adiciona posição relativa para alinhar a linha */
-}
-
-header h1 {
-    margin: 0; /* Remove a margem padrão */
-    display: inline-block; /* Permite que o título fique na mesma linha que a navegação */
-    position: static;
-    font-size: 3em;
 }
 
 header::after {
@@ -46,137 +56,153 @@ header::after {
     left: 0; /* Alinha a linha à esquerda do cabeçalho */
     width: 100%; /* Define a largura da linha como 100% do cabeçalho */
     height: 2px; /* Define a altura da linha */
-    background-color: #ff7300; /* Cor laranja da linha */
+    background-color: var(--laranja-principal); /* Cor laranja da linha */
 }
 
-/* Define a estrutura interna do cabeçalho com flexbox para alinhar os elementos */
+.header-start, .header-about {
+    position: relative;
+    right: 390px;
+    margin: -100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.header-login, .header-signup {
+    position: relative;
+    left: 490px;
+    margin: -40%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.header-signup {
+    background-color: var(--transparent); 
+    color: var(--branco-padrao); 
+    border: 2px solid var(--branco-padrao);
+    padding: 8px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.header-signup:hover {
+    background-color: var(--laranja-principal);
+    color: var(--branco-padrao);
+}
+
 header .container {
     display: flex;
-    align-items: center; /* Alinha os itens verticalmente */
+    align-items: center;
+}
+
+.header-start, .header-about, .header-login, .header-signup {
+    color: var(--branco-padrao);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-start:hover, .header-about:hover, .header-login:hover {
+    color: var(--laranja-principal);
 }
 
 /* Estiliza a lista de navegação */
-nav ul {
+.header-tags {
     list-style-type: none; /* Remove os marcadores da lista */
     padding: 0px 0px 0px 100px; /* Remove o espaçamento interno da lista */
 }
 
 /* Estiliza os itens da lista de navegação */
-nav ul li {
+.header-tags li {
     display: inline-block; /* Exibe os itens em linha */
     margin-right: 50px; /* Espaçamento entre os itens */
 }
 
-/* Estiliza os links da lista de navegação */
-nav ul li a {
-    color: #fff; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    transition: color 0.3s; /* Adiciona uma transição suave de cor */
-}
-
-/* Altera a cor do texto dos links ao passar o mouse sobre eles */
-nav ul li a:hover {
-    color: #ff7300; /* Nova cor do texto */
-}
-
-
-/* Estilo para alinhar os links de login e cadastro */
-nav li abbr {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: 0;
-    color:#ffffff
-}
-
-/* Altera a cor do texto dos links ao passar o mouse sobre eles */
-nav ul li abbr:hover {
-    color: #ff7300; /* Nova cor do texto */
-}
-
-/* Estiliza os links da lista de navegação */
-nav ul li abbr {
-    color: #ffffff; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    transition: color 0.3s; /* Adiciona uma transição suave de cor */
-}
-
-/* Estiliza os itens da lista de navegação */
-nav ul li abbr {
-    display: inline-block; /* Exibe os itens em linha */
-    margin-right: 20px; /* Espaçamento entre os itens */
-}
-
-/* Estiliza a lista de navegação */
-nav ul li abbr {
-    list-style-type: none; /* Remove os marcadores da lista */
-    padding: 0px 0px 0px 0px; /* Remove o espaçamento interno da lista */
-}
-
-/* Estiliza as seções da página */
 section {
     padding: 50px 0; /* Espaçamento interno das seções */
-    text-align: center; /* Alinhamento do texto */
 }
 
-/* Estiliza os títulos das seções */
-section h2 {
+.heading-tag-project-name {
     font-family: Arial, sans-serif;
     font-size: 60px;   
     margin-bottom: 20px; /* Espaçamento inferior do título */
-    color: rgb(255, 253, 253);
+    color: var(--branco-padrao);
     text-align: left;
     padding-left: 0px;
-    margin-left: -240px;
+    margin-left: -267px;
 }
-section p1 {
+
+.text-container {
+    width: 60%; /* Defina a largura desejada para o contêiner do texto */
+}
+
+.text-project-explication {
     color: rgb(145 149 171/ 1); /* Altera a cor do texto para branco */
     text-align: left;
     padding-left: 0px;
-    margin-left: -300px;
+    position: relative;
+    right: 55%;
     font-size: 1rem;
     line-height: 1.5rem;
+    word-wrap: break-word; /* ou overflow-wrap: break-word; */
 }
 
-section h3 {
+.first-button, .second-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--laranja-button);
+    color: var(--branco-padrao);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    position: relative;
+    right: 33%;
+    margin-top: 4%;
+}
+
+.first-button:hover {
+    background-color: var(--laranja-principal);
+}
+
+.second-button {
+    background-color: var(--preto-10);
+}
+
+.second-button:hover {
+    background-color: var(--preto-50);
+}
+
+.button-discord-logo {
+    width: 20px;
+    height: 15px;
+    position: relative;
+    margin: 0;
+    right: 8px;
+}
+
+.heading-tag-section-otimization {
     font-family: Arial, sans-serif;
     font-size: 30px;   
     margin-bottom: 20px; /* Espaçamento inferior do título */
-    color: rgb(255, 253, 253);
+    color: var(--branco-padrao);
     text-align: left;
     padding-left: 0px;
     margin-left: 20px;
 }
-section p2 {
-    color: white; /* Altera a cor do texto para branco */
-    text-align: left;
+
+.text-servers-status {
+    color: var(--branco-padrao); /* Altera a cor do texto para branco */
     text-align: left;
     padding-left: 0px;
     margin-left: 160px;
-  
-}
-
-/* Estiliza os botões da página */
-.button {
-    display: inline-block; /* Exibe o botão em linha */
-    padding: 10px 20px; /* Espaçamento interno do botão */
-    background-color: #7289da; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado */
-    border-radius: 5px; /* Adiciona bordas arredondadas */
-    transition: background-color 0.3s; /* Adiciona uma transição suave de cor */
-}
-
-/* Altera a cor de fundo dos botões ao passar o mouse sobre eles */
-.button:hover {
-    background-color: #677bc4; /* Nova cor de fundo do botão */
-}
-
-/* Estiliza o rodapé da página */
-footer {
-    background-color: #272626, #ee8a38; /* Cor de fundo do rodapé */
-    color: #ffffff; /* Cor do texto */
-    text-align: center; /* Alinhamento do texto */
-    padding: 10px 0; /* Espaçamento interno do rodapé */
 }
 
 .imagem-sobre {
@@ -187,7 +213,10 @@ footer {
 }
 
 footer {
-    
+    background-color: var(--cinza-escuro-background), var(--laranja-background); /* Cor de fundo do rodapé */
+    color: var(--branco-padrao); /* Cor do texto */
+    text-align: center; /* Alinhamento do texto */
+    padding: 10px 0; /* Espaçamento interno do rodapé */
     bottom: 0;
     width: 100%;
     height: 50px; /* Ajuste a altura do seu footer aqui */
