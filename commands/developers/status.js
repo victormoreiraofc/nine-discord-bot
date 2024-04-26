@@ -21,7 +21,7 @@ module.exports = {
 
     run: async (client, interaction) => {
 
-        if (interaction.user.id !== Develope) return interaction.reply({ content: `Apenas o meu developer chefe pode utilizar este comando!`, ephemeral: true })
+        if (interaction.user.id !== Develope) return interaction.reply({ content: `Apenas o meu dono pode utilizar este comando!`, ephemeral: true })
 
         try {
 
@@ -38,19 +38,9 @@ module.exports = {
 
             let embed = new Discord.EmbedBuilder()
             .setColor("#2B2D31")
-            .setTitle("Status do NINE foi atualizado!")
-            .addFields(
-                {
-                    name: `Meu status agora é: `,
-                    value: `\`${status}\`.`,
-                    inline: false
-                },
-                {
-                    name: `A minha descrição:`,
-                    value: `\`${desc}\`.`,
-                    inline: false
-                }
-            )
+            .setTitle('⏳ ALTERAÇÃO DO STATUS!')
+            .setDescription(`O status do BOT foi alterado para **${status}**, e a descrição foi alterada para **${desc}**.`)
+            .setFooter({ text: `Alterado por ${interaction.user.username} (${interaction.user.id})`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
 
             await interaction.reply({ embeds: [embed] });
 

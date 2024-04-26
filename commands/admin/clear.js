@@ -25,8 +25,9 @@ module.exports = {
 
                 let embed = new Discord.EmbedBuilder()
                     .setColor("#2B2D31")
-                    .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
-                    .setDescription('Nenhuma mensagem deletada! Você só pode deletar entre 0 a 200 mensagens.');
+                    .setTitle('🧹 MENSAGENS FALHARAM EM SER DELETADAS!')
+                    .setDescription(`Nenhuma mensagem deletada em ${interaction.channel}! Você só pode deletar entre **0 a 200** mensagens.`)
+                    .setFooter({ text: `Tentado por ${interaction.user.username} (${interaction.user.id})`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
 
                 interaction.reply({ embeds: [embed] })
 
@@ -36,8 +37,9 @@ module.exports = {
 
                 let embed = new Discord.EmbedBuilder()
                     .setColor("#2B2D31")
-                    .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL({ dynamic: true }) })
-                    .setDescription(`O canal de texo ${interaction.channel} teve \`${numero}\` mensagens deletadas por \`${interaction.user.username}\`.`);
+                    .setTitle('🧹 MENSAGENS DELETADAS!')
+                    .setDescription(`O canal de texto ${interaction.channel}, teve as ultimas **${numero}** mensagens deletadas.`)
+                    .setFooter({ text: `Apagado por ${interaction.user.username} (${interaction.user.id})`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
 
                 interaction.reply({ embeds: [embed] })
 
@@ -50,6 +52,8 @@ module.exports = {
                 } else if (apagar_mensagem === "nao") {
                     return;
                 }
+
+                
 
             }
 
