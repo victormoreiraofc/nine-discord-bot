@@ -52,12 +52,7 @@ module.exports = {
                 } else if (apagar_mensagem === "nao") {
                     return;
                 }
-
-                
-
             }
-
         }
-
     }
 }
