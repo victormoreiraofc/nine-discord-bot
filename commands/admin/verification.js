@@ -22,7 +22,7 @@ module.exports = {
 
         let embed = new Discord.EmbedBuilder()
         .setColor("#2B2D31")
-        .setImage("https://appmaster.io/api/_files/HeN2GVjV627DrY7QHraui5/download/")
+        .setImage("https://i.imgur.com/bHq1yWz.gif")
         .setDescription(`Este servidor solicita que você faça uma verificação para acessar seus canais. Você pode facilmente fazer isso clicando no botão de verificação.`);
 
         let botao = new Discord.ActionRowBuilder().addComponents(
