@@ -8,13 +8,13 @@ module.exports = {
   options: [
     {
       name: "tópico",
-      description: "Defina o tópico.",
+      description: "Defina o tópico da sua sugestão.",
       type: Discord.ApplicationCommandOptionType.String,
       required: true,
     },
     {
       name: "sugestão",
-      description: "Escreva algo.",
+      description: "Descreva sua sugestão com detalhes.",
       type: Discord.ApplicationCommandOptionType.String,
       required: true,
     },
@@ -30,7 +30,7 @@ module.exports = {
     const canalId = definirCanalSugestoes.getCanalDeSugestao(interaction.guild.id);
     const canal = interaction.guild.channels.cache.get(canalId);
     if (!canal) {
-      interaction.reply(`Olá ${interaction.user}, o canal de sugestões ainda não foi configurado no script!`);
+      interaction.reply({ content: `Olá ${interaction.user}, o canal de sugestões ainda não foi configurado no script!`, ephemeral: true });
     } else {  
       let sugestao = interaction.options.getString("sugestão");
       let topico = interaction.options.getString("tópico");
@@ -38,7 +38,7 @@ module.exports = {
 
       let embed = new Discord.EmbedBuilder()
         .setColor("#2B2D31")
-        .setTitle("💡 NOVA SUGESTÃO!")
+        .setTitle(`💡 NOVA SUGESTÃO - ${interaction.guild.name}`)
         .setDescription(`**Tópico:** ${topico}\n**Sugestão de ${interaction.user}:** ${sugestao}`);
 
         if (imagemAnexada) {

@@ -22,12 +22,12 @@ module.exports = {
     const isAdmin = interaction.member.roles.cache.some(role => role.permissions.has("ADMINISTRATOR"));
 
     if (!isAdmin) {
-      return interaction.reply("Apenas administradores podem realizar esta ação.");
+      return interaction.reply({ content: "❌ | Você não possui permissão para utilizar este comando.", ephemeral: true });
     }    
 
     canaisDeSugestao[guildId] = canalDeSugestao.id;
 
-    interaction.reply(`Canal de sugestões definido para ${canalDeSugestao}.`);
+    interaction.reply({ content: `✅ | O canal ${canalDeSugestao} foi definido como canal de sugestões.`, ephemeral: true });
   },
 
   getCanalDeSugestao: function(guildId) {
