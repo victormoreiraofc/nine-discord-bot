@@ -19,6 +19,7 @@ module.exports = {
 
         let embed = new Discord.EmbedBuilder()
         .setTitle(`🖼 ${user.username}`)
+        .setFooter({ text: `Uh-oh! Parece que o avatar está tão bem escondido quanto uma batata em um jogo de 'esconde-esconde'! 🥔` })
         .setImage(user.displayAvatarURL({ dynamic: true, size: 4096 }));
 
         let botao = new Discord.ActionRowBuilder().addComponents(

@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports = {
-    name: "slap",
+    name: "tapear",
     description: "Dê um tapa em uma pessoa.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
@@ -37,7 +37,7 @@ module.exports = {
         var random2 = lista2[Math.floor(Math.random() * lista2.length)];
 
         const embed = new Discord.EmbedBuilder()
-            .setDescription(`**${interaction.user} Deu um tapa em ${user}.**`)
+            .setDescription(`**👋 ${interaction.user} Deu um tapa em ${user}.**`)
             .setImage(`${random1}`)
             .setColor("#2B2D31")
 

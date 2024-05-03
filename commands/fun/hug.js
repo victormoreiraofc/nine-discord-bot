@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports = {
-    name: "hug",
+    name: "abracar",
     description: "Abrace um membro.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
@@ -37,7 +37,7 @@ module.exports = {
         let random2 = lista2[Math.floor(Math.random() * lista2.length)];
 
         let embed = new Discord.EmbedBuilder()
-            .setDescription(`**O membro ${interaction.user} abraçou  ${user}.**`)
+            .setDescription(`**🫂 O membro ${interaction.user} abraçou  ${user}.**`)
             .setImage(`${random1}`)
             .setColor("#2B2D31")
 

@@ -10,7 +10,13 @@ module.exports = {
         description: "Mencione o cargo de verificado.",
         type: Discord.ApplicationCommandOptionType.Role,
         required: true,
-    }
+    },
+    {
+        name: "imagem",
+        description: "URL da imagem para exibir na mensagem de verificação.",
+        type: Discord.ApplicationCommandOptionType.String,
+        required: false,
+      }
 ],
 
   run: async (client, interaction) => {
@@ -19,11 +25,17 @@ module.exports = {
         interaction.reply({ content: `❌ | Você não possui permissão para utilizar este comando.`, ephemeral: true })
     } else {
         let cargo = interaction.options.getRole("cargo");
+        let imagemURL = interaction.options.getString("imagem");
 
         let embed = new Discord.EmbedBuilder()
         .setColor("#2B2D31")
-        .setImage("https://i.imgur.com/bHq1yWz.gif")
         .setDescription(`Este servidor solicita que você faça uma verificação para acessar seus canais. Você pode facilmente fazer isso clicando no botão de verificação.`);
+
+        if (imagemURL) {
+            embed.setImage(imagemURL);
+          } else {
+            embed.setImage("https://i.imgur.com/bHq1yWz.gif");
+          }
 
         let botao = new Discord.ActionRowBuilder().addComponents(
             new Discord.ButtonBuilder()
