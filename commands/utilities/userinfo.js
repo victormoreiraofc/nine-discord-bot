@@ -47,36 +47,12 @@ module.exports = {
     .setTitle(`🔎 Informações do Usuário: ${tag}`)
     .setThumbnail(icon)
     .addFields(
-        {
-            name: `🪪 Tag do Discord:`,
-            value: `\`${tag}\`.`,
-            inline: true
-        },
-        {
-            name: `🆔 Id:`,
-            value: `\`${id}\`.`,
-            inline: true
-        },
-        {
-            name: `📅 Data da Criação da conta:`,
-            value: `\`${data_conta} (${tempoDecorridoCriacaoConta})\`.`,
-            inline: true
-        },
-        {
-            name: `🧩 Data de Entrada no Servidor:`,
-            value: `\`${entradaDiscord} (${tempoDecorridoMembro})\``,
-            inline: true
-        },
-        {
-            name: `🤖 É um bot?`,
-            value: `\`${is_bot}\`.`,
-            inline: true
-        },
-        {
-            name: `🏅 Cargos do Usuario:`,
-            value: `\`${cargosUsuario}\`.`,
-            inline: true
-        }
+        {name: `🪪 Tag do Discord:`,value: `\`${tag}\`.`,inline: true},
+        {name: `🆔 Id:`,value: `\`${id}\`.`,inline: true},
+        {name: `📅 Data da Criação da conta:`,value: `\`${data_conta} (${tempoDecorridoCriacaoConta})\`.`,inline: true},
+        {name: `🧩 Data de Entrada no Servidor:`,value: `\`${entradaDiscord} (${tempoDecorridoMembro})\``,inline: true},
+        {name: `🤖 É um bot?`,value: `\`${is_bot}\`.`,inline: true},
+        {name: `🏅 Cargos do Usuario:`,value: `\`${cargosUsuario}\`.`,inline: true}
     );
 
     interaction.reply({ embeds: [embed] });

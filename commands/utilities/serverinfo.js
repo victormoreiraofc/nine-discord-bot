@@ -37,46 +37,14 @@ module.exports = {
     .setTitle(nome)
     .setThumbnail(icon)
     .addFields(
-        {
-            name: `🆔 ID:`,
-            value: `\`${id}\``,
-            inline: true
-        },
-        {
-            name: `👥 Membros:`,
-            value: `\`${membros}\``,
-            inline: true
-        },
-        {
-            name: `📅 Criado em:`,
-            value: `\`${criacao} (${tempoDecorrido})\``,
-            inline: true
-        },
-        {
-            name: `🌟 Entrei aqui em:`,
-            value: `\`${entradaDiscord} (${tempoDecorridoMembro})\``,
-            inline: true
-        },
-        {
-            name: `🚫 Membros Banidos:`,
-            value: `\`${membros_banidos}\``,
-            inline: true
-        },
-        {
-            name: `📤 Canais:`,
-            value: `\`${canais_total}\``,
-            inline: true
-        },
-        {
-            name: `📅 Categorias:`,
-            value: `\`${canais_categoria}\``,
-            inline: true
-        },
-        {
-            name: `🌐 Total de Cargos:`,
-            value: `\`${cargos_totais}\``,
-            inline: true
-        }
+        {name: `🆔 ID:`,value: `\`${id}\``,inline: true},
+        {name: `👥 Membros:`,value: `\`${membros}\``,inline: true},
+        {name: `📅 Criado em:`,value: `\`${criacao} (${tempoDecorrido})\``,inline: true},
+        {name: `🌟 Entrei aqui em:`,value: `\`${entradaDiscord} (${tempoDecorridoMembro})\``,inline: true},
+        {name: `🚫 Membros Banidos:`,value: `\`${membros_banidos}\``,inline: true},
+        {name: `📤 Canais:`,value: `\`${canais_total}\``,inline: true},
+        {name: `📅 Categorias:`,value: `\`${canais_categoria}\``,inline: true},
+        {name: `🌐 Total de Cargos:`,value: `\`${cargos_totais}\``,inline: true}
     );
 
     const botao = new Discord.ActionRowBuilder().addComponents(

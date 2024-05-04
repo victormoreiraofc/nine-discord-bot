@@ -24,8 +24,10 @@ module.exports = {
 
     const messageListener = async (message) => {
       if (!message.author.bot && message.channel.id === channel.id) {
+        const description = message.content;
+
         const newMessage = await channel.send({
-          content: `Postado por: ${message.author}`,
+          content: `**Postado por:** ${message.author}\n**Descrição:** ${description}`,
           files: [message.attachments.first().url]
         });
 
