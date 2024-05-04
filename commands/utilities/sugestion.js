@@ -29,6 +29,7 @@ module.exports = {
   run: async (client, interaction) => {
     const canalId = definirCanalSugestoes.getCanalDeSugestao(interaction.guild.id);
     const canal = interaction.guild.channels.cache.get(canalId);
+
     if (!canal) {
       interaction.reply({ content: `Olá ${interaction.user}, o canal de sugestões ainda não foi configurado no script!`, ephemeral: true });
     } else {  
@@ -52,7 +53,7 @@ module.exports = {
 
         canal.threads.create({
           name: `Discussão sobre a sugestão: ${topico}`,
-          autoArchiveDuration: 1440, // Define o tempo de arquivamento para 24 horas
+          autoArchiveDuration: 1440,
           reason: `Thread criada para discussão da sugestão de ${interaction.user.username}`,
           startMessage: sentMessage
         }).catch(error => {

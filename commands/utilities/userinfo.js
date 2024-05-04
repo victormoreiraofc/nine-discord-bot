@@ -1,4 +1,4 @@
-const Discord = require("discord.js")
+const Discord = require("discord.js");
 const moment = require('moment');
 
 module.exports = {
@@ -16,21 +16,21 @@ module.exports = {
 
   run: async (client, interaction) => {
 
-    const icon = interaction.user.displayAvatarURL({ dynamic: true });
+    const icon = interaction.options.getUser("usuário").displayAvatarURL({ dynamic: true });
 
     const entradaDiscord = interaction.member.joinedAt.toLocaleString("pt-BR", { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    const member = interaction.guild.members.cache.get(interaction.user.id);
+    const member = interaction.guild.members.cache.get(interaction.options.getUser("usuário").id);
     const dataAtual = new Date();
     const dataEntrada = member.joinedAt;
     const diferencaMembro = moment.duration(dataAtual - dataEntrada);
     const tempoDecorridoMembro = `há ${diferencaMembro.years()} anos, ${diferencaMembro.months()} meses`;
 
-    const dataCriacaoConta = moment(interaction.user.createdAt);
+    const dataCriacaoConta = moment(interaction.options.getUser("usuário").createdAt);
     const dataAtualConta = moment();
     const diferencaCriacaoConta = moment.duration(dataAtualConta.diff(dataCriacaoConta));
     const tempoDecorridoCriacaoConta = `há ${diferencaCriacaoConta.years()} anos e ${diferencaCriacaoConta.months()} meses`;
 
-    const memberCargo = interaction.member;
+    const memberCargo = member;
     const cargosUsuario = memberCargo.roles.cache.map(role => role.name).join(", ");
 
     let user = interaction.options.getUser("usuário");
@@ -44,7 +44,7 @@ module.exports = {
 
     let embed = new Discord.EmbedBuilder()
     .setColor("#2B2D31")
-    .setTitle(`🔎 Informações do Usuário: ${interaction.user.username}`)
+    .setTitle(`🔎 Informações do Usuário: ${tag}`)
     .setThumbnail(icon)
     .addFields(
         {
@@ -79,9 +79,6 @@ module.exports = {
         }
     );
 
-    interaction.reply({ embeds: [embed] })
-
-
-    
+    interaction.reply({ embeds: [embed] });
   }
-}
+};
