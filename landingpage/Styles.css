@@ -15,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('/assets/4pA4zbJ.jpeg');
+    background-image: url('../assets/4pA4zbJ.jpeg');
 }
 
 /* Define o container principal com largura máxima de 800px, centralizado na página */
