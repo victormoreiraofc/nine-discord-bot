@@ -23,7 +23,7 @@ module.exports = {
 
   run: async (client, interaction) => {
     if (!interaction.member.roles.cache.some(role => role.permissions.has("ADMINISTRATOR"))) {
-      return interaction.reply({ content: "Você não possui permissão para utilizar este comando.", ephemeral: true });
+      return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`, ephemeral: true });
     }
 
     const message = interaction.options.getString("message");

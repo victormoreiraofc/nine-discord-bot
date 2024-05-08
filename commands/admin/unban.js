@@ -22,7 +22,7 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.BanMembers)) {
-        interaction.reply(`Você não possui poermissão para utilizar este comando.`);
+        interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Banir Membros.`, ephemeral: true })
     } else {
         let user = interaction.options.getUser("user");
         let motivo = interaction.options.getString("motivo");

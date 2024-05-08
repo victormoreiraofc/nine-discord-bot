@@ -18,7 +18,7 @@ module.exports = {
         let numero = interaction.options.getNumber('quantidade')
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-            interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+            interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Mensagens.`, ephemeral: true })
         } else {
 
             if (parseInt(numero) > 200 || parseInt(numero) <= 0) {

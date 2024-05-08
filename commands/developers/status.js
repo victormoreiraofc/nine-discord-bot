@@ -21,7 +21,7 @@ module.exports = {
 
     run: async (client, interaction) => {
 
-        if (interaction.user.id !== Develope) return interaction.reply({ content: `Apenas o meu dono pode utilizar este comando!`, ephemeral: true })
+        if (interaction.user.id !== Develope) return interaction.reply({ content: `⛔ | ${interaction.user.username} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Desenvolvedor do BOT.`, ephemeral: true })
 
         try {
 

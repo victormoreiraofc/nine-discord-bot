@@ -2,12 +2,12 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "verificar",
-  description: "Crie um sistema de verificação.",
+  description: "Cria um sistema de verificação contra bots.",
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
         name: "cargo",
-        description: "Mencione o cargo de verificado.",
+        description: "Mencione o cargo que o usuario receberá após verificado.",
         type: Discord.ApplicationCommandOptionType.Role,
         required: true,
     },
@@ -22,7 +22,7 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
-        interaction.reply({ content: `❌ | Você não possui permissão para utilizar este comando.`, ephemeral: true })
+      interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Cargos.`, ephemeral: true })
     } else {
         let cargo = interaction.options.getRole("cargo");
         let imagemURL = interaction.options.getString("imagem");
@@ -51,15 +51,12 @@ module.exports = {
             coletor.on("collect", (c) => {
                 if (!c.member.roles.cache.get(cargo.id)) {
                     c.member.roles.add(cargo.id)
-                    c.reply({ content: `✅ | Olá **${c.user.username}**, Você foi verificado com sucesso e recebeu acesso a novas salas do discord.`, ephemeral: true })
+                    c.reply({ content: `✅ | ${c.user} Você foi verificado com sucesso e recebeu acesso a novas salas do discord.`, ephemeral: true })
                 } else if (c.member.roles.cache.get(cargo.id)) {
-                    c.reply({ content: `🚫 | Olá **${c.user.username}**, Você já foi verificado. Se estiver tendo problemas para encontrar as salas, entre em contato com a administração.`, ephemeral: true })
-                }
-                
+                    c.reply({ content: `⛔ | ${c.user} Você já foi verificado. Se estiver tendo problemas para encontrar as salas, entre em contato com a administração.`, ephemeral: true })
+                } 
             })
         })
     }
-
-
   }
 }

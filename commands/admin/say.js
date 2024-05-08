@@ -22,7 +22,7 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-        interaction.reply({ content: `Você não possui permissão para utilizar este comando.`, ephemeral: true })
+        interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Mensagens.`, ephemeral: true })
     } else {
         let embed_fala = interaction.options.getString("embed");
         let normal_fala = interaction.options.getString("normal");
