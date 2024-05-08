@@ -40,7 +40,8 @@ module.exports = {
       let embed = new Discord.EmbedBuilder()
         .setColor("#2B2D31")
         .setTitle(`💡 NOVA SUGESTÃO - ${interaction.guild.name}`)
-        .setDescription(`**Tópico:** ${topico}\n**Sugestão de ${interaction.user}:** ${sugestao}`);
+        .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
+        .setDescription(`**Tópico:** \`${topico}\`\n**Sugestão de ${interaction.user}:** \`${sugestao}\``);
 
         if (imagemAnexada) {
           embed.setImage(imagemAnexada);
