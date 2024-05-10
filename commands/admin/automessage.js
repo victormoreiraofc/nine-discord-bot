@@ -8,13 +8,13 @@ module.exports = {
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
-      name: "message",
+      name: "mensagem",
       description: "A mensagem que o bot enviará.",
       type: Discord.ApplicationCommandOptionType.String,
       required: true,
     },
     {
-      name: "interval",
+      name: "intervalo",
       description: "O intervalo em segundos entre cada mensagem.",
       type: Discord.ApplicationCommandOptionType.Integer,
       required: true,
@@ -26,15 +26,15 @@ module.exports = {
       return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`, ephemeral: true });
     }
 
-    const message = interaction.options.getString("message");
-    const interval = interaction.options.getInteger("interval");
+    const message = interaction.options.getString("mensagem");
+    const interval = interaction.options.getInteger("intervalo");
 
     if (interval < 10) {
-      return interaction.reply({ content: "O intervalo mínimo é de 10 segundos.", ephemeral: true });
+      return interaction.reply({ content: `⛔ | ${interaction.user} Por favor, aumente o intervalo para pelo menos 10 segundos.`, ephemeral: true });
     }
 
     if (intervals[interaction.guildId]) {
-      return interaction.reply({ content: "Já existe uma mensagem sendo enviada em intervalos regulares. Use o comando 'stopmessage' para interromper antes de definir uma nova.", ephemeral: true });
+      return interaction.reply({ content: `📣 | ${interaction.user} Uma mensagem já está sendo enviada em intervalos regulares. Por favor, utilize o comando 'stopmessage' para interrompê-la antes de definir uma nova.`, ephemeral: true });
     }
 
     const sendMessage = () => {
@@ -45,6 +45,6 @@ module.exports = {
 
     intervals[interaction.guildId] = setInterval(sendMessage, interval * 1000);
 
-    interaction.reply({ content: `Mensagem definida para ser enviada a cada ${interval} segundos.`, ephemeral: true });
+    interaction.reply({ content: `✅ | ${interaction.user} A mensagem foi definida para ser enviada a cada ${interval} segundos.`, ephemeral: true });
   },
 };
