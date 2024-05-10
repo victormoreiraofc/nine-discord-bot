@@ -1,61 +1,32 @@
-
-const Discord = require("discord.js")
-const ms = require('ms')
-const db = require("quick.db");
+const Discord = require('discord.js');
 
 module.exports = {
-  name: "startticket",
-  description: "Utilize essa função para enviar a mensagem de TICKET",
-  type: Discord.ApplicationCommandType.ChatInput,
-  options: [
-    {
-      name: 'canal_message',
-      description: 'Canal que a mensagem de TICKET será enviada.',
-      type: Discord.ApplicationCommandOptionType.Channel,
-      channelTypes: [Discord.ChannelType.GuildText],
-      required: true
-    },
-  ],
+    name: "ticket",
+    description: "Configurador e editor de ticket.",
+    type: Discord.ApplicationCommandType.ChatInput,
 
-  run: async (client, interaction, message) => {
+    run: async (client, interaction) => {
+        if (!interaction.member.permissions.has(Discord.PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: "Você não possui permissão de utilizar este comando.", ephemeral: true });
+        let Row = new Discord.ActionRowBuilder().addComponents(
+            new Discord.StringSelectMenuBuilder().setPlaceholder('Selecione uma opção.').setCustomId('Panel')
+        );
 
-    if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.Administrator)) return interaction.reply({ content: `❌ **Calma! Você precisar ser um admin para usar o meu sistema de ticket!**`, ephemeral: true })
+        await interaction.guild.channels.fetch().then(response => {
+            response.forEach(element => {
+                if (element.type != 0) return;
+                Row.components[0].addOptions({ label: element.name.toUpperCase(), value: element.id });
+            });
+        });
 
-    else {
-      let canal = interaction.options.getChannel('canal_message')
+        const embed = new Discord.EmbedBuilder()
+            .setColor("#2B2D31")
+            .setTitle(`\`🎲 Painel de Configuração\``)
+            .addFields(
+                { name: '> Bem-vindo ao painel de configuração de ticket.', value: '> ・Selecione a sala a qual deseje que fique o ticket.' },
+            )
+            .setTimestamp()
+            .setFooter({text:`🎫 Configure o sistema de tickets para que ele seja ativado.`});
 
-      
-	  const style2 = new Discord.EmbedBuilder()
-	    .setAuthor({ name: `📑 Ticket - ${interaction.guild.name}` })
-        .setDescription(`\`ATENÇÃO!\`\n<:seta:1131066243839963156> Não abra um TICKET sem ter algo relevante. Leia nossas <#1131038490587562004>, apenas por abrir irá gerar punições.\n\nSelecione uma das **CATEGORIAS** abaixo para abrir um **TICKET**:`)
-		.setColor("#2b2d31")
-
-        const style2row = new Discord.ActionRowBuilder()
-			.addComponents(
-				new Discord.StringSelectMenuBuilder()
-					.setCustomId('select')
-					.setPlaceholder('Selecione a categoria para abrir um ticket.')
-					.addOptions([
-						{
-							label: 'Suporte',
-							emoji: '❔',
-							value: 'suporte',
-						},
-						{
-							label: 'Denúncia',
-							emoji: '⚠️',
-							value: 'denuncia',
-						},
-						{
-							label: 'Parceria',
-							emoji: '⭐',
-							value: 'parceria',
-						},
-					]),
-			);
-
-        canal.send({embeds: [style2], components: [style2row]})
-				interaction.reply({content: "Ok!", ephemeral: true})
+        return interaction.reply({ embeds: [embed], components: [Row], ephemeral: true });
     }
-  }
-}
+};
