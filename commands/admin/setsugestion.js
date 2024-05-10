@@ -4,7 +4,7 @@ const canaisDeSugestao = {};
 
 module.exports = {
   name: "configsugestoes",
-  description: "Defina o canal onde as sugestões serão enviadas.",
+  description: "Configure o sistema de sugestões no servidor.",
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {
@@ -19,7 +19,7 @@ module.exports = {
       .setColor("#2B2D31")
       .setTitle(`\`💻 Painel de Configuração\``)
       .setDescription("¬ Bem-vindo ao painel de configuração de sugestões! \n¬ Marque o canal a qual deseja que fique a sala de sugestões.")
-      .setFooter({text:`📌 Marque o canal de sugestões para que ele seja ativado.`});
+      .setFooter({text:`📌 Configure o sistema de sugestões para que ele seja ativado.`});
 
     interaction.reply({ embeds: [embed_config], ephemeral: false });
 
@@ -29,13 +29,22 @@ module.exports = {
     collector.on('collect', async (message) => {
       const mentionedChannel = message.mentions.channels.first();
       canaisDeSugestao[guildId] = mentionedChannel.id;
-      await interaction.followUp({ content: `\`✅ | Um novo canal foi definido como canal de sugestões.\`` });
-      collector.stop();
-    });
+      await interaction.followUp({ content: `✅ | ${interaction.user} um novo canal foi definido como canal de sugestões!` });
+
+      const embed_sugestao = new Discord.EmbedBuilder()
+      .setColor("#2B2D31")
+      .setTitle(`💡 De sua sugestão!`)
+      .setDescription("Esta é a nova sala de sugestões. Fique à vontade para enviar suas sugestões aqui! ```/sugerir para enviar sua sugestão.``` ")
+      .setFooter({text:`📌 Sua sugestão poderá nos ajudar a melhorar cada dia mais.`});
+
+    mentionedChannel.send({ embeds: [embed_sugestao] });
+    
+    collector.stop();
+  });
 
     collector.on('end', (collected, reason) => {
       if (reason === 'time') {
-        interaction.followUp({ content: `\`⏲️ | Tempo esgotado. Você não selecionou nenhum canal.\`` });
+        interaction.followUp({ content: `⏲️ | ${interaction.user} seu tempo acabou e você não definiu nenhum canal!` });
       }
     });
   },

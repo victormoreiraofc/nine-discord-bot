@@ -31,7 +31,7 @@ module.exports = {
     const canal = interaction.guild.channels.cache.get(canalId);
 
     if (!canal) {
-      interaction.reply({ content: `Olá ${interaction.user}, o canal de sugestões ainda não foi configurado no script!`, ephemeral: true });
+      interaction.reply({ content: `⛔ | ${interaction.user}, o canal de sugestões ainda não foi configurado, caso deseje configar digite /configsugestoes!`, ephemeral: true });
     } else {  
       let sugestao = interaction.options.getString("sugestão");
       let topico = interaction.options.getString("tópico");
@@ -39,9 +39,10 @@ module.exports = {
 
       let embed = new Discord.EmbedBuilder()
         .setColor("#2B2D31")
-        .setTitle(`💡 NOVA SUGESTÃO - ${interaction.guild.name}`)
+        .setAuthor({ name: `${interaction.user.tag} - ${interaction.user.id}`, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
         .setThumbnail(interaction.user.displayAvatarURL({ dynamic: true }))
-        .setDescription(`**Tópico:** \`${topico}\`\n**Sugestão de ${interaction.user}:** \`${sugestao}\``);
+        .setDescription(`**Tópico:** \`${topico}\`\n**Sugestão de ${interaction.user}:** \`${sugestao}\``)
+        .setTimestamp();
 
         if (imagemAnexada) {
           embed.setImage(imagemAnexada);
@@ -49,7 +50,7 @@ module.exports = {
 
       canal.send({ embeds: [embed] }).then(sentMessage => {
         sentMessage.react("👍").then(() => sentMessage.react("👎")).catch(() => {
-          interaction.reply({ content: `Ops ${interaction.user}, algo deu errado!` });
+          interaction.reply({ content: `⛔ | ${interaction.user}, algo deu errado!` });
         });
 
         canal.threads.create({
@@ -59,11 +60,13 @@ module.exports = {
           startMessage: sentMessage
         }).catch(error => {
           console.error("Erro ao criar thread:", error);
-          interaction.reply({ content: `Ops ${interaction.user}, algo deu errado ao criar a thread de discussão!` });
+          interaction.reply({ content: `⛔ | ${interaction.user} , algo deu errado ao criar a thread de discussão!` });
         });
       }).catch(() => {
-        interaction.reply({ content: `Ops ${interaction.user}, algo deu errado ao enviar a sugestão!` });
+        interaction.reply({ content: `⛔ | ${interaction.user}, algo deu errado ao enviar a sugestão!` });
       });
+
+      interaction.reply({ content: `✅ | ${interaction.user} Você mandou sua sugestão com sucesso!`, ephemeral: true });
     }
   }
 };
