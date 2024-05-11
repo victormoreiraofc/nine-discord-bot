@@ -28,13 +28,13 @@ module.exports = {
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {
-            name: "action",
+            name: "tipo",
             description: "Encode ou Decode.",
             type: Discord.ApplicationCommandOptionType.String,
             required: true,
         },
         {
-            name: "message",
+            name: "mensagem",
             description: "A mensagem a ser codificada ou decodificada.",
             type: Discord.ApplicationCommandOptionType.String,
             required: true,
@@ -42,8 +42,8 @@ module.exports = {
     ],
 
     run: async (client, interaction) => {
-        const action = interaction.options.getString('action');
-        const message = interaction.options.getString('message');
+        const action = interaction.options.getString('tipo');
+        const message = interaction.options.getString('mensagem');
 
         let result;
         if (action === 'encode') {

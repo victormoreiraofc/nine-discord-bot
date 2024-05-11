@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const canaisDeSugestao = {};
 
 module.exports = {
-  name: "configsugestoes",
+  name: "configsugerir",
   description: "Configure o sistema de sugestões no servidor.",
   type: Discord.ApplicationCommandType.ChatInput,
 
@@ -16,12 +16,15 @@ module.exports = {
     }
 
     const embed_config = new Discord.EmbedBuilder()
-      .setColor("#2B2D31")
-      .setTitle(`\`💻 Painel de Configuração\``)
-      .setDescription("¬ Bem-vindo ao painel de configuração de sugestões! \n¬ Marque o canal a qual deseja que fique a sala de sugestões.")
-      .setFooter({text:`📌 Configure o sistema de sugestões para que ele seja ativado.`});
+            .setColor("#2B2D31")
+            .setTitle(`\`🎲 Painel de Configuração\``)
+            .addFields(
+                { name: '> Bem-vindo ao painel de configuração de sugestões.', value: '> ・Selecione a sala a qual deseje que fique as sugestões.' },
+            )
+            .setTimestamp()
+            .setFooter({text:`💡 Configure o sistema de sugestões para que ele seja ativado.`});
 
-    interaction.reply({ embeds: [embed_config], ephemeral: false });
+    interaction.reply({ embeds: [embed_config], ephemeral: true });
 
     const filter = m => m.author.id === interaction.user.id && m.mentions.channels.size > 0;
     const collector = interaction.channel.createMessageCollector({ filter, time: 60000, max: 1 });
@@ -29,13 +32,13 @@ module.exports = {
     collector.on('collect', async (message) => {
       const mentionedChannel = message.mentions.channels.first();
       canaisDeSugestao[guildId] = mentionedChannel.id;
-      await interaction.followUp({ content: `✅ | ${interaction.user} um novo canal foi definido como canal de sugestões!` });
+      await interaction.followUp({ content: `✅ | ${interaction.user} um novo canal foi definido como canal de sugestões!`, ephemeral: true });
 
       const embed_sugestao = new Discord.EmbedBuilder()
       .setColor("#2B2D31")
-      .setTitle(`💡 De sua sugestão!`)
-      .setDescription("Esta é a nova sala de sugestões. Fique à vontade para enviar suas sugestões aqui! ```/sugerir para enviar sua sugestão.``` ")
-      .setFooter({text:`📌 Sua sugestão poderá nos ajudar a melhorar cada dia mais.`});
+      .setTitle(`💡 Sistema de Sugestões!`)
+      .setDescription("Para realizar uma **sugestão** digite o comando abaixo. ```/sugerir``` \n > Lembre-se de detalhar sua sugestão ao máximo, se possível, incluindo uma imagem para ilustrar.\n")
+      .setFooter({text:`🔸Obrigado por contribuir conosco para melhorar o servidor.`});
 
     mentionedChannel.send({ embeds: [embed_sugestao] });
     

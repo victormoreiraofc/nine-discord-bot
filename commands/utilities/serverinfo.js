@@ -5,7 +5,7 @@ const moment = require('moment');
 
 module.exports = {
   name: "serverinfo",
-  description: "Envia as informações do atual servidor.",
+  description: "Envia informações sobre o servidor atual.",
   type: Discord.ApplicationCommandType.ChatInput,
 
   run: async (client, interaction) => {

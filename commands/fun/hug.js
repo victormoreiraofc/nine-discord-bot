@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
     name: "abracar",
-    description: "Abrace um membro.",
+    description: "Dê um abraço em uma pessoa.",
     type: Discord.ApplicationCommandType.ChatInput,
     options: [
         {

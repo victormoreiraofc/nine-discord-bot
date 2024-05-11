@@ -7,7 +7,7 @@ const { QuickDB } = require("quick.db")
 const db = new QuickDB(); // npm i quick.db better-sqlite3
 
 client.on("interactionCreate", (interaction) => {
-    if (interaction.isSelectMenu()) {
+    if (interaction.isStringSelectMenu()) {
       if (interaction.customId === "painel_reacao") {
         let opc = interaction.values[0]
         if (opc === "opc1") {

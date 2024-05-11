@@ -3,7 +3,7 @@ const definirCanalSugestoes = require("../admin/setsugestion.js");
 
 module.exports = {
   name: "sugerir",
-  description: "Faça sua sugestão.",
+  description: "Envia sugestões para o servidor atual.",
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
@@ -31,7 +31,7 @@ module.exports = {
     const canal = interaction.guild.channels.cache.get(canalId);
 
     if (!canal) {
-      interaction.reply({ content: `⛔ | ${interaction.user}, o canal de sugestões ainda não foi configurado, caso deseje configar digite /configsugestoes!`, ephemeral: true });
+      interaction.reply({ content: `⛔ — **${interaction.user}, o canal de sugestões ainda não foi configurado, caso deseje configar digite /configsugestoes!**`, ephemeral: true });
     } else {  
       let sugestao = interaction.options.getString("sugestão");
       let topico = interaction.options.getString("tópico");
@@ -50,7 +50,7 @@ module.exports = {
 
       canal.send({ embeds: [embed] }).then(sentMessage => {
         sentMessage.react("👍").then(() => sentMessage.react("👎")).catch(() => {
-          interaction.reply({ content: `⛔ | ${interaction.user}, algo deu errado!` });
+          interaction.reply({ content: `⛔ — **Algo deu errado ao enviar as reações!**` });
         });
 
         canal.threads.create({
@@ -60,13 +60,13 @@ module.exports = {
           startMessage: sentMessage
         }).catch(error => {
           console.error("Erro ao criar thread:", error);
-          interaction.reply({ content: `⛔ | ${interaction.user} , algo deu errado ao criar a thread de discussão!` });
+          interaction.reply({ content: `⛔ — **Algo deu errado ao criar a thread de discussão!**` });
         });
       }).catch(() => {
-        interaction.reply({ content: `⛔ | ${interaction.user}, algo deu errado ao enviar a sugestão!` });
+        interaction.reply({ content: `⛔ — **Algo deu errado ao enviar a sugestão!**` });
       });
 
-      interaction.reply({ content: `✅ | ${interaction.user} Você mandou sua sugestão com sucesso!`, ephemeral: true });
+      interaction.reply({ content: `✅ — **${interaction.user} Você mandou sua sugestão com sucesso!**`, ephemeral: true });
     }
   }
 };

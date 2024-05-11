@@ -4,7 +4,7 @@ const db = new QuickDB()
 
 module.exports = {
   name: "reportarbug",
-  description: "Crie um sistema de reporte de bug.",
+  description: "Implementa um sistema de relatório de bugs.",
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
@@ -30,7 +30,7 @@ module.exports = {
   run: async (client, interaction) => {
     
     if (!interaction.member.roles.cache.some(role => role.permissions.has("ADMINISTRATOR"))) {
-      return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`, ephemeral: true });
+      return interaction.reply({ content: `⛔ — ${interaction.user} **você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.**`, ephemeral: true });
     } else {
       const guildId = interaction.guild.id;
       const canal = interaction.options.getChannel("canal");
@@ -38,20 +38,20 @@ module.exports = {
       const imagem = interaction.options.getString("imagem");
 
       if(canal.type !== Discord.ChannelType.GuildText) {
-        interaction.reply({ content: `❌ | O canal ${canal} não é um canal de texto.`, ephemeral: true })
+        interaction.reply({ content: `⚠️ — **O canal ${canal} não é um canal de texto.**`, ephemeral: true })
       } else if (logs.type !== Discord.ChannelType.GuildText) {
-        interaction.reply({ content: `❌ | O canal ${logs} não é um canal de texto.`, ephemeral: true })
+        interaction.reply({ content: `⚠️ — **O canal ${logs} não é um canal de texto.**`, ephemeral: true })
       } else {
         await db.set(`canal_${interaction.guild.id}`, canal.id)
         await db.set(`logs_${interaction.guild.id}`, logs.id)
 
-        interaction.reply({ content: `✅ | O canal ${canal} foi definido como canal de reporte de bug e o ${logs} como canal de logs.`, ephemeral: true });
+        interaction.reply({ content: `✅ — **Os canais foram definidos com sucesso.**`, ephemeral: true });
 
         let embed = new Discord.EmbedBuilder()
-         .setColor("#2B2D31")
-         .setTitle("👾 REPORTE DE BUGS")
-         .setDescription(`> Se encontrou algum bug e deseja informar-nos para que possamos resolver, clique no botão abaixo.`)
-         .setFooter({ text: "Obrigado por contribuir conosco para resolver os bugs." });
+         .setColor("ff0000")
+         .setTitle("🛑 Reporte um bug")
+         .setDescription(`Clique no botão abaixo para abrir o formulário para reportar um bug!\n\n Após o envio do formulário nossa equipe irá revisar o bug e resolver o mais breve possivel.\n`)
+         .setFooter({ text: "🔸Obrigado por contribuir conosco para resolver os bugs." });
 
         if (imagem) {
           embed.setImage(imagem);
@@ -60,7 +60,6 @@ module.exports = {
         let botao = new Discord.ActionRowBuilder().addComponents(
           new Discord.ButtonBuilder()
           .setCustomId("formulario")
-          .setEmoji("🚧")
           .setLabel("Reportar")
           .setStyle(Discord.ButtonStyle.Danger)
       );

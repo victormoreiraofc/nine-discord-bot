@@ -3,7 +3,7 @@ const moment = require('moment');
 
 module.exports = {
   name: "userinfo",
-  description: "Veja informações de um usuário.",
+  description: "Visualiza informações sobre um usuário.",
   type: Discord.ApplicationCommandType.ChatInput,
   options: [
     {
