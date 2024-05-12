@@ -12,12 +12,17 @@ module.exports = {
     const isAdmin = interaction.member.roles.cache.some(role => role.permissions.has("ADMINISTRATOR"));
 
     if (!isAdmin) {
-      return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Adminstrador.`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#ED4245")
+      .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`);
+
+    return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
     }
 
     const embed_config = new Discord.EmbedBuilder()
             .setColor("#2B2D31")
-            .setTitle(`\`🎲 Painel de Configuração\``)
+            .setTitle(`🔨 — Painel de Configuração`)
+            .setThumbnail('https://i.imgur.com/oMErLS7.png')
             .addFields(
                 { name: '> Bem-vindo ao painel de configuração de sugestões.', value: '> ・Selecione a sala a qual deseje que fique as sugestões.' },
             )
@@ -32,7 +37,11 @@ module.exports = {
     collector.on('collect', async (message) => {
       const mentionedChannel = message.mentions.channels.first();
       canaisDeSugestao[guildId] = mentionedChannel.id;
-      await interaction.followUp({ content: `✅ | ${interaction.user} um novo canal foi definido como canal de sugestões!`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#22C55E")
+      .setDescription(`✅ • Um novo canal foi definido como canal de sugestões.`);
+
+      await interaction.followUp({ embeds: [embed_reply], ephemeral: true });
 
       const embed_sugestao = new Discord.EmbedBuilder()
       .setColor("#2B2D31")
@@ -47,7 +56,11 @@ module.exports = {
 
     collector.on('end', (collected, reason) => {
       if (reason === 'time') {
-        interaction.followUp({ content: `⏲️ | ${interaction.user} seu tempo acabou e você não definiu nenhum canal!` });
+        const embed_reply = new Discord.EmbedBuilder()
+          .setColor("#3B82F6")
+          .setDescription(`⏲️ • Seu tempo acabou e você não definiu nenhum canal.`);
+
+        interaction.followUp({ embeds: [embed_reply], ephemeral: true });
       }
     });
   },

@@ -17,7 +17,11 @@ module.exports = {
 
   run: async (client, interaction) => {
     if (isInstagramActive) {
-      return interaction.reply("O envio de fotos do Instagram já está ativo. Para parar, aguarde até que uma nova mensagem seja enviada.");
+      const embed_reply = new Discord.EmbedBuilder()
+            .setColor("#22C55E")
+            .setDescription(`✅ • O envio de fotos do Instagram já está ativo.`);
+
+      return interaction.reply({ embeds: [embed_reply], ephemeral: true });
     }
 
     const channel = interaction.options.getChannel("canal");
@@ -42,7 +46,11 @@ module.exports = {
           reason: `Thread criada para comentários da foto`,
         }).catch(error => {
           console.error("Erro ao criar thread:", error);
-          interaction.reply({ content: `Ops ${interaction.user}, algo deu errado ao criar a thread de discussão!` });
+          const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#ED4245")
+                .setDescription(`⛔ • Algo deu errado ao criar a thread de discussão.`);
+
+          interaction.reply({ embeds: [embed_reply], ephemeral: true });
         });
 
         isInstagramActive = true;
@@ -51,6 +59,10 @@ module.exports = {
 
     client.on("messageCreate", messageListener);
 
-    interaction.reply(`Canal ${channel} definido para receber fotos do Instagram!`);
+    const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#22C55E")
+      .setDescription(`✅ • Canal ${channel} definido para receber fotos do Instagram.`);
+
+    interaction.reply({ embeds: [embed_reply], ephemeral: true });
   }
 };

@@ -22,7 +22,11 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageRoles)) {
-      interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Cargos.`, ephemeral: true })
+      const embed_reply = new Discord.EmbedBuilder()
+        .setColor("#ED4245")
+        .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Cargos.`);
+
+      interaction.reply({ embeds: [embed_reply], ephemeral: true });
     } else {
         let cargo = interaction.options.getRole("cargo");
         let imagemURL = interaction.options.getString("imagem");
@@ -51,9 +55,17 @@ module.exports = {
             coletor.on("collect", (c) => {
                 if (!c.member.roles.cache.get(cargo.id)) {
                     c.member.roles.add(cargo.id)
-                    c.reply({ content: `✅ | ${c.user} Você foi verificado com sucesso e recebeu acesso a novas salas do discord.`, ephemeral: true })
-                } else if (c.member.roles.cache.get(cargo.id)) {
-                    c.reply({ content: `⛔ | ${c.user} Você já foi verificado. Se estiver tendo problemas para encontrar as salas, entre em contato com a administração.`, ephemeral: true })
+                    const embed_reply = new Discord.EmbedBuilder()
+                          .setColor("#22C55E")
+                          .setDescription(`✅ • Você foi verificado com sucesso e recebeu acesso a novas salas do discord.`);
+
+                    c.reply({ embeds: [embed_reply], ephemeral: true });
+                  } else if (c.member.roles.cache.get(cargo.id)) {
+                  const embed_reply = new Discord.EmbedBuilder()
+                          .setColor("#22C55E")
+                          .setDescription(`⛔ • Você já foi verificado. Se estiver tendo problemas para encontrar as salas, entre em contato com a administração.`);
+
+                  c.reply({ embeds: [embed_reply], ephemeral: true });
                 } 
             })
         })

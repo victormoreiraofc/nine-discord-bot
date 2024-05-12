@@ -30,7 +30,11 @@ module.exports = {
   run: async (client, interaction) => {
     
     if (!interaction.member.roles.cache.some(role => role.permissions.has("ADMINISTRATOR"))) {
-      return interaction.reply({ content: `⛔ — ${interaction.user} **você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.**`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#ED4245")
+      .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`);
+
+      return interaction.reply({ embeds: [embed_reply], ephemeral: true });
     } else {
       const guildId = interaction.guild.id;
       const canal = interaction.options.getChannel("canal");
@@ -38,14 +42,26 @@ module.exports = {
       const imagem = interaction.options.getString("imagem");
 
       if(canal.type !== Discord.ChannelType.GuildText) {
-        interaction.reply({ content: `⚠️ — **O canal ${canal} não é um canal de texto.**`, ephemeral: true })
+        const embed_reply = new Discord.EmbedBuilder()
+        .setColor("#FBBD23")
+        .setDescription(`⚠️ • O canal ${canal} não é um canal de texto.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
       } else if (logs.type !== Discord.ChannelType.GuildText) {
-        interaction.reply({ content: `⚠️ — **O canal ${logs} não é um canal de texto.**`, ephemeral: true })
+        const embed_reply = new Discord.EmbedBuilder()
+        .setColor("#FBBD23")
+        .setDescription(`⚠️ • O canal ${logs} não é um canal de texto.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
       } else {
         await db.set(`canal_${interaction.guild.id}`, canal.id)
         await db.set(`logs_${interaction.guild.id}`, logs.id)
 
-        interaction.reply({ content: `✅ — **Os canais foram definidos com sucesso.**`, ephemeral: true });
+        const embed_reply = new Discord.EmbedBuilder()
+        .setColor("#22C55E")
+        .setDescription(`✅ • Os canais foram definidos com sucesso.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
 
         let embed = new Discord.EmbedBuilder()
          .setColor("ff0000")

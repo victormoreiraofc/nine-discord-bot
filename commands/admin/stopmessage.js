@@ -9,17 +9,29 @@ module.exports = {
 
   run: async (client, interaction) => {
     if (!interaction.member.roles.cache.some(role => role.permissions.has("ADMINISTRATOR"))) {
-      return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+        .setColor("#ED4245")
+        .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`);
+
+      return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
     }
 
     if (!intervals[interaction.guildId] || !(intervals[interaction.guildId] instanceof Object)) {
-      return interaction.reply({ content: "Nenhuma mensagem está sendo enviada em intervalos regulares.", ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#ED4245")
+                .setDescription(`⛔ • Nenhuma mensagem está sendo enviada em intervalos regulares.`);
+
+            return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
     }
 
     clearInterval(intervals[interaction.guildId]);
     delete intervals[interaction.guildId];
 
-    interaction.reply({ content: "O envio da mensagem foi interrompido.", ephemeral: true });
+    const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#22C55E")
+      .setDescription(`✅ • O envio da mensagem foi interrompido.`);
+
+    interaction.reply({ embeds: [embed_reply], ephemeral: true });
   },
 };
 

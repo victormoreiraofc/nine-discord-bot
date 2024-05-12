@@ -31,7 +31,11 @@ module.exports = {
     const canal = interaction.guild.channels.cache.get(canalId);
 
     if (!canal) {
-      interaction.reply({ content: `⛔ — **${interaction.user}, o canal de sugestões ainda não foi configurado, caso deseje configar digite /configsugestoes!**`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#ED4245")
+      .setDescription(`⛔ • O canal de sugestões ainda não foi configurado, caso deseje configar digite /configsugerir.`);
+
+      interaction.reply({ embeds: [embed_reply], ephemeral: true });
     } else {  
       let sugestao = interaction.options.getString("sugestão");
       let topico = interaction.options.getString("tópico");
@@ -50,7 +54,11 @@ module.exports = {
 
       canal.send({ embeds: [embed] }).then(sentMessage => {
         sentMessage.react("👍").then(() => sentMessage.react("👎")).catch(() => {
-          interaction.reply({ content: `⛔ — **Algo deu errado ao enviar as reações!**` });
+          const embed_reply = new Discord.EmbedBuilder()
+          .setColor("#ED4245")
+          .setDescription(`⛔ • Algo deu errado ao enviar as reações.`);
+
+          interaction.reply({ embeds: [embed_reply], ephemeral: true });
         });
 
         canal.threads.create({
@@ -60,13 +68,26 @@ module.exports = {
           startMessage: sentMessage
         }).catch(error => {
           console.error("Erro ao criar thread:", error);
-          interaction.reply({ content: `⛔ — **Algo deu errado ao criar a thread de discussão!**` });
+          const embed_reply = new Discord.EmbedBuilder()
+          .setColor("#ED4245")
+          .setDescription(`⛔ • Algo deu errado ao criar a thread de discussão.`);
+
+          interaction.reply({ embeds: [embed_reply], ephemeral: true });
         });
       }).catch(() => {
-        interaction.reply({ content: `⛔ — **Algo deu errado ao enviar a sugestão!**` });
+        const embed_reply = new Discord.EmbedBuilder()
+          .setColor("#ED4245")
+          .setDescription(`⛔ • Algo deu errado ao enviar a sugestão.`);
+
+          interaction.reply({ embeds: [embed_reply], ephemeral: true });
       });
 
-      interaction.reply({ content: `✅ — **${interaction.user} Você mandou sua sugestão com sucesso!**`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#22c55e")
+      .setDescription(`✅ • Sugestão foi enviada com sucesso.`);
+
+      interaction.reply({ embeds: [embed_reply], ephemeral: true });
+
     }
   }
 };

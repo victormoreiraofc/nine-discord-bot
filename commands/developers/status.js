@@ -21,7 +21,13 @@ module.exports = {
 
     run: async (client, interaction) => {
 
-        if (interaction.user.id !== Develope) return interaction.reply({ content: `⛔ | ${interaction.user.username} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Desenvolvedor do BOT.`, ephemeral: true })
+        if (interaction.user.id !== Develope) {
+            const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#ED4245")
+                .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Desenvolvedor do BOT.`);
+
+            return interaction.reply({ embeds: [embed_reply], ephemeral: true });
+        }
 
         try {
 
@@ -45,7 +51,11 @@ module.exports = {
             await interaction.reply({ embeds: [embed] });
 
         } catch (error) {
-            return console.log(`Ops ${interaction.user}, algo deu errado ao executar este comando.`)
+            const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#ED4245")
+                .setDescription(`⛔ • Algo deu errado ao executar o comando.`);
+
+            return interaction.reply({ embeds: [embed_reply], ephemeral: true });
         }
     }
 }

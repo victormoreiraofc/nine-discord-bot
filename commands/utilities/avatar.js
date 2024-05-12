@@ -27,7 +27,6 @@ module.exports = {
             .setURL(user.displayAvatarURL({ dynamic: true }))
             .setStyle(Discord.ButtonStyle.Link)
             .setLabel(`✨ Abrir avatar de ${user.username}.`)
-            
         )
     
         interaction.reply({ embeds: [embed], components: [botao] })

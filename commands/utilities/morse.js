@@ -61,7 +61,11 @@ module.exports = {
         .setDescription(`**Resultado:** ||${result}||`);
             interaction.reply({ embeds: [embed2] })
         } else {
-            return interaction.reply({ content: 'Ação inválida. Use `encode` ou `decode`.', ephemeral: true });
+            const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#ED4245")
+                .setDescription(`⛔ • Ação inválida. Use (encode) ou (decode).`);
+
+            return interaction.reply({ embeds: [embed_reply], ephemeral: true });
         }
 
     }

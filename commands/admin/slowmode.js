@@ -26,8 +26,12 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
-      return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Canais.`, ephemeral: true });
-    }
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#ED4245")
+      .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Canais.`);
+
+    return interaction.reply({ embeds: [embed_reply], ephemeral: true });     
+  }
 
     let t = interaction.options.getString("tempo");
     let tempo = ms(t);
@@ -36,23 +40,43 @@ module.exports = {
     if (!channel || channel === null) channel = interaction.channel;
 
     if (!tempo && t !== "0s") {
-      return interaction.reply({ content: `Forneça um tempo válido: [s|m|h].`, ephemeral: true });
+      const embed_reply = new Discord.EmbedBuilder()
+          .setColor("#FBBD23")
+          .setDescription(`⚠️ • Forneça um tempo válido: [s|m|h].`);
+
+      return interaction.reply({ embeds: [embed_reply], ephemeral: true });
     }
 
     if (t === "0s") {
       db.delete(`slowmode.${channel.id}`);
       channel.setRateLimitPerUser(0).then(() => {
-        interaction.reply({ content: `O modo lento foi desativado para o canal ${channel}.` });
+        const embed_reply = new Discord.EmbedBuilder()
+              .setColor("#22C55E")
+              .setDescription(`✅ • O modo lento foi desativado para o canal ${channel}.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
       }).catch(() => {
-        interaction.reply({ content: `Ops, algo deu errado ao desativar o modo lento.`, ephemeral: true });
+        const embed_reply = new Discord.EmbedBuilder()
+              .setColor("#ED4245")
+              .setDescription(`⛔ • Algo deu errado ao desativar o modo lento.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
       });
     } else {
       db.set(`slowmode.${channel.id}`, tempo / 1000);
 
       channel.setRateLimitPerUser(tempo / 1000).then(() => {
-        interaction.reply({ content: `O canal de texto ${channel} teve seu modo lento definido para \`${t}\`.` });
+        const embed_reply = new Discord.EmbedBuilder()
+         .setColor("#22C55E")
+         .setDescription(`✅ • O canal de texto ${channel} teve seu modo lento definido para \`${t}\`.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
       }).catch(() => {
-        interaction.reply({ content: `Ops, algo deu errado ao executar este comando, verifique minhas permissões.`, ephemeral: true });
+        const embed_reply = new Discord.EmbedBuilder()
+          .setColor("#ED4245")
+          .setDescription(`⛔ • Algo deu errado ao executar este comando, verifique minhas permissões.`);
+
+        interaction.reply({ embeds: [embed_reply], ephemeral: true });
       });
     }
   }
