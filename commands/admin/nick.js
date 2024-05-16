@@ -22,7 +22,11 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageNicknames)) {
-        interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Apelidos.`, ephemeral: true })
+        const embed_reply = new Discord.EmbedBuilder()
+        .setColor("#ED4245")
+        .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Apilido.`);
+
+      return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
     } else {
         const user = interaction.options.getUser("membro")
         const membro = interaction.guild.members.cache.get(user.id)

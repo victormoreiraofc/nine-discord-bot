@@ -34,7 +34,7 @@ module.exports = {
         }).catch(e => {
             const embed_reply = new Discord.EmbedBuilder()
                   .setColor("#ED4245")
-                  .setDescription(`⛔ • Algo deu errado ao tentar bloquear um canal.`);
+                  .setDescription(`⛔ • Algo deu errado ao tentar desbloquear um canal.`);
             
             interaction.reply({ embeds: [embed_reply], ephemeral: true });
         })

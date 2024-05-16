@@ -66,7 +66,7 @@ module.exports = {
         let embed = new Discord.EmbedBuilder()
          .setColor("ff0000")
          .setTitle("🛑 Reporte um bug")
-         .setDescription(`Clique no botão abaixo para abrir o formulário para reportar um bug!\n\n Após o envio do formulário nossa equipe irá revisar o bug e resolver o mais breve possivel.\n`)
+         .setDescription(`> Clique no botão abaixo para abrir o formulário para reportar um bug!\n\n> Após o envio do formulário nossa equipe irá revisar o bug e resolver o mais breve possivel.\n`)
          .setFooter({ text: "🔸Obrigado por contribuir conosco para resolver os bugs." });
 
         if (imagem) {

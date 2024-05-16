@@ -22,7 +22,11 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-        interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Mensagens.`, ephemeral: true })
+        const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#ED4245")
+      .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Administrador.`);
+
+    return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
     } else {
         let embed_fala = interaction.options.getString("embed");
         let normal_fala = interaction.options.getString("normal");

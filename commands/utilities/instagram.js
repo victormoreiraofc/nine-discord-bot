@@ -31,7 +31,7 @@ module.exports = {
         const description = message.content;
 
         const newMessage = await channel.send({
-          content: `**Postado por:** ${message.author}\n**Descrição:** ${description}`,
+          content: `**↪ Postado por:** ${message.author}\n**↪ Descrição:** ${description}`,
           files: [message.attachments.first().url]
         });
 

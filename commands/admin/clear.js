@@ -18,7 +18,11 @@ module.exports = {
         let numero = interaction.options.getNumber('quantidade');
 
         if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageMessages)) {
-            return interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Mensagens.`, ephemeral: true });
+            const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#ED4245")
+                .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Mensagens.`);
+
+            return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
         }
 
         if (parseInt(numero) > 200 || parseInt(numero) <= 0) {
@@ -53,14 +57,26 @@ module.exports = {
                     }, 5000);
                 }
             } else {
-                interaction.reply({ content: "⚠️ Não há mensagens para serem deletadas.", ephemeral: true });
+                const embed_reply = new Discord.EmbedBuilder()
+                    .setColor("#FBBD23")
+                    .setDescription(`⚠️ • Não há mensagens para serem deletadas.`);
+
+                interaction.reply({ embeds: [embed_reply], ephemeral: true });
             }
         } catch (error) {
             if (error.message.includes("Unknown Message")) {
-                interaction.reply({ content: "⚠️ Não foi possivel apagar porque as mensagens foram enviadas há mais de 14 dias.", ephemeral: true });
+                const embed_reply = new Discord.EmbedBuilder()
+                    .setColor("#FBBD23")
+                    .setDescription(`⚠️ • Não foi possivel apagar porque as mensagens foram enviadas há mais de 14 dias.`);
+
+                interaction.reply({ embeds: [embed_reply], ephemeral: true });        
             } else {
                 console.error("Erro ao limpar mensagens:", error);
-                interaction.reply({ content: "⛔ Algo deu errado ao tentar limpar as mensagens.", ephemeral: true });
+                const embed_reply = new Discord.EmbedBuilder()
+                    .setColor("#ED4245")
+                    .setDescription(`⛔ • Algo deu errado ao tentar limpar as mensagens.`);
+
+                interaction.reply({ embeds: [embed_reply], ephemeral: true });
             }
         }
     }

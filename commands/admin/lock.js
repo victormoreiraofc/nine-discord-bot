@@ -16,15 +16,28 @@ module.exports = {
   run: async (client, interaction) => {
 
     if (!interaction.member.permissions.has(Discord.PermissionFlagsBits.ManageChannels)) {
-        interaction.reply({ content: `⛔ | ${interaction.user} Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Canais.`, ephemeral: true })
+      const embed_reply = new Discord.EmbedBuilder()
+      .setColor("#ED4245")
+      .setDescription(`⛔ • Você não possui permissão para utilizar este comando, para executar esse comando você precisa ter a permissão de Gerenciar Canais.`);
+
+    return interaction.reply({ embeds: [embed_reply], ephemeral: true }); 
     } else {
         const canal = interaction.options.getChannel("canal")
 
         canal.permissionOverwrites.edit(interaction.guild.id, { SendMessages: false }).then( () => {
-            interaction.reply({ content: `🔒 O canal de texto ${canal} foi bloqueado!` })
+          const embed_reply = new Discord.EmbedBuilder()
+                .setColor("#FBBD23")
+                .setDescription(`⚠️ • O canal de texto ${canal} foi bloqueado.`);
+
+          interaction.reply({ embeds: [embed_reply], ephemeral: true });
+
             if (canal.id !== interaction.channel.id) return canal.send({ content: `🔒 Este canal foi bloqueado!` })
         }).catch(e => {
-            interaction.reply({ content: `❌ Ops, algo deu errado.` })
+            const embed_reply = new Discord.EmbedBuilder()
+                  .setColor("#ED4245")
+                  .setDescription(`⛔ • Algo deu errado ao tentar bloquear o canal.`);
+
+            interaction.reply({ embeds: [embed_reply], ephemeral: true });
         })
     }
     
