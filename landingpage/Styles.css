@@ -15,7 +15,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('../assets/4pA4zbJ.jpeg');
+    background-image: url("../assets/nine.jpeg");
+    background-size: cover;
 }
 
 /* Define o container principal com largura máxima de 800px, centralizado na página */
@@ -225,8 +226,8 @@ section {
 }
 
 footer {
-    background-color: var(--cinza-escuro-background), var(--laranja-background); /* Cor de fundo do rodapé */
-    color: var(--branco-padrao); /* Cor do texto */
+    
+    color: #ffffff; /* Cor do texto */
     text-align: center; /* Alinhamento do texto */
     padding: 10px 0; /* Espaçamento interno do rodapé */
     bottom: 0;
@@ -235,4 +236,76 @@ footer {
     padding: 10px 0; /* Espaçamento interno (opcional) */
     text-align: center; /* Alinhamento do texto (opcional) */
     z-index: 2000; /* Define a camada do elemento (opcional) */
+    
 }
+
+.val{
+    color: white;
+    display: flex;
+    width:70px;
+	display:inline-block;
+	vertical-align:top;
+    width:30px;
+    align-items: center;
+}
+#tema{
+    margin-left: 150px;
+}
+.logo{
+    width:50px;
+    margin-left: 40px;
+    margin-top: 100px;
+    display: inline-block;
+    margin-bottom: -24px;
+}
+.valorant p{
+    color:#ffff;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: 700;
+    display:inline-block;
+    margin: auto;
+    cursor: pointer;
+}
+.selo{
+    width:20px;
+}
+.valorant span{
+    color:#ffffff8a;
+    display:block;
+    margin-left: 90px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    text-transform: uppercase;
+}
+.valorant {
+    display: inline-block;
+}
+
+.sobre h1, h2{
+    color: #d38208;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.sobre p {
+    color: #b4b6b6;
+}
+
+.sobre {
+    padding: 0;
+    margin: 0;
+    padding: 3rem;
+    margin: 3rem;
+    text-align: center;
+    border: 2px solid #b4b6b6;
+    border-radius: 700px;
+}
+
+.sobre li, ul {
+    padding: 0.5rem;
+    color: #b4b6b6;
+    display: block;
+    text-align: center;
+
+}
+
