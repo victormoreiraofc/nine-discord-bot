@@ -19,13 +19,11 @@ body {
     background-size: cover;
 }
 
-/* Define o container principal com largura máxima de 800px, centralizado na página */
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Define o tamanho da imagem */
 .header-logo-nine {
     width: 50px;
     height: 50px;
@@ -45,17 +43,17 @@ body {
 header {
     background-color: var(--cinza-escuro-background);
     color: var(--branco-padrao);
-    position: relative; /* Adiciona posição relativa para alinhar a linha */
+    position: relative;
 }
 
 header::after {
-    content: ''; /* Adiciona um conteúdo vazio para criar a linha */
-    position: absolute; /* Posiciona absolutamente em relação ao cabeçalho */
-    bottom: 0; /* Alinha a linha na parte inferior do cabeçalho */
-    left: 0; /* Alinha a linha à esquerda do cabeçalho */
-    width: 100%; /* Define a largura da linha como 100% do cabeçalho */
-    height: 2px; /* Define a altura da linha */
-    background-color: #63636388; /* Cor laranja da linha */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #63636388;
 }
 
 .header-start, .header-about {
@@ -109,20 +107,18 @@ header .container {
     color: var(--branco-padrao);
 }
 
-/* Estiliza a lista de navegação */
 .header-tags {
-    list-style-type: none; /* Remove os marcadores da lista */
-    padding: 0px 0px 0px 100px; /* Remove o espaçamento interno da lista */
+    list-style-type: none;
+    padding: 0px 0px 0px 100px;
 }
 
-/* Estiliza os itens da lista de navegação */
 .header-tags li {
-    display: inline-block; /* Exibe os itens em linha */
-    margin-right: 50px; /* Espaçamento entre os itens */
+    display: inline-block;
+    margin-right: 50px;
 }
 
 section {
-    padding: 50px 0; /* Espaçamento interno das seções */
+    padding: 50px 0;
 }
 
 .principal-logo-nine {
@@ -135,7 +131,7 @@ section {
 .heading-tag-project-name {
     font-family: Arial, sans-serif;
     font-size: 60px;   
-    margin-bottom: 20px; /* Espaçamento inferior do título */
+    margin-bottom: 20px;
     color: var(--branco-padrao);
     text-align: left;
     padding-left: 0px;
@@ -144,18 +140,18 @@ section {
 }
 
 .text-container {
-    width: 60%; /* Defina a largura desejada para o contêiner do texto */
+    width: 60%;
 }
 
 .text-project-explication {
-    color: rgb(145 149 171/ 1); /* Altera a cor do texto para branco */
+    color: rgb(145 149 171/ 1);
     text-align: left;
     padding-left: 0px;
     position: relative;
     right: 55%;
     font-size: 1rem;
     line-height: 1.5rem;
-    word-wrap: break-word; /* ou overflow-wrap: break-word; */
+    word-wrap: break-word;
 }
 
 .first-button, .second-button {
@@ -204,7 +200,7 @@ section {
 .heading-tag-section-otimization {
     font-family: Arial, sans-serif;
     font-size: 30px;   
-    margin-bottom: 20px; /* Espaçamento inferior do título */
+    margin-bottom: 20px;
     color: var(--branco-padrao);
     text-align: left;
     padding-left: 0px;
@@ -212,7 +208,7 @@ section {
 }
 
 .text-servers-status {
-    color: var(--branco-padrao); /* Altera a cor do texto para branco */
+    color: var(--branco-padrao);
     text-align: left;
     padding-left: 0px;
     margin-left: 160px;
@@ -220,22 +216,21 @@ section {
 
 .imagem-sobre {
     float: left;
-    width: 500px; /* Altere o valor para o tamanho desejado */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 20px; /* Adiciona um espaçamento à direita da imagem (opcional) */
+    width: 500px;
+    height: auto;
+    margin-right: 20px;
 }
 
 footer {
-    
-    color: #ffffff; /* Cor do texto */
-    text-align: center; /* Alinhamento do texto */
-    padding: 10px 0; /* Espaçamento interno do rodapé */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
     bottom: 0;
     width: 100%;
-    height: 50px; /* Ajuste a altura do seu footer aqui */
-    padding: 10px 0; /* Espaçamento interno (opcional) */
-    text-align: center; /* Alinhamento do texto (opcional) */
-    z-index: 2000; /* Define a camada do elemento (opcional) */
+    height: 50px;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 2000;
     
 }
 
@@ -248,9 +243,11 @@ footer {
     width:30px;
     align-items: center;
 }
+
 #tema{
     margin-left: 150px;
 }
+
 .logo{
     width:50px;
     margin-left: 40px;
@@ -258,6 +255,7 @@ footer {
     display: inline-block;
     margin-bottom: -24px;
 }
+
 .valorant p{
     color:#ffff;
     text-transform: uppercase;
@@ -267,9 +265,11 @@ footer {
     margin: auto;
     cursor: pointer;
 }
+
 .selo{
     width:20px;
 }
+
 .valorant span{
     color:#ffffff8a;
     display:block;
@@ -278,6 +278,7 @@ footer {
     font-size: medium;
     text-transform: uppercase;
 }
+
 .valorant {
     display: inline-block;
 }
@@ -287,6 +288,7 @@ footer {
     font-weight: 400;
     text-transform: uppercase;
 }
+
 .sobre p {
     color: #b4b6b6;
 }
@@ -306,6 +308,5 @@ footer {
     color: #b4b6b6;
     display: block;
     text-align: center;
-
 }
 
